@@ -1,7 +1,8 @@
-import './globals.css';
+import './globals.scss';
 import type { Metadata } from 'next';
 import Mont from 'next/font/local';
-
+import { Theme } from '@radix-ui/themes';
+import '@radix-ui/themes/styles.css';
 const MontFont = Mont({ src: '../../public/fonts/Mont-SemiBold.woff' });
 export const metadata: Metadata = {
   title: 'Sber Afisha',
@@ -11,7 +12,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru">
-      <body className={MontFont.className}>{children}</body>
+      <body className={MontFont.className}>
+        <Theme>{children}</Theme>
+      </body>
     </html>
   );
 }

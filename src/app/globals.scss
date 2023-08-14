@@ -1,5 +1,4 @@
 @import './font.scss';
-$main-bg-color: #fff;
 
 html,
 body {
@@ -9,7 +8,7 @@ body {
 
 body {
   color: #222;
-  background: $main-bg-color;
+  background: fff;
 }
 
 a {
