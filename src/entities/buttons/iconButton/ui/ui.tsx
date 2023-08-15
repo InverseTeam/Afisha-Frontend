@@ -7,11 +7,12 @@ interface IconButtonProps {
   height: string;
   width: string;
   color: string;
+  isActive?: boolean;
   onClick: () => void;
   iconSrc: string;
 }
 
-export const IconButton: FC<IconButtonProps> = ({ height, width, onClick, iconSrc, color }) => {
+export const IconButton: FC<IconButtonProps> = ({ height, width, onClick, iconSrc, color,isActive = true }) => {
   const StyledIconButton = styled.button`
     display: flex;
     width: ${width};
@@ -24,10 +25,16 @@ export const IconButton: FC<IconButtonProps> = ({ height, width, onClick, iconSr
     border-radius: 15px;
     background: ${color};
 
-    cursor: pointer;
+    cursor: ${isActive ? 'pointer' : 'not-allowed'};
+
 
     &:hover {
-      background: #528d3d;
+      filter: ${isActive ? 'brightness(90%)' : 'brightness(100%)'};
+    }
+
+    &:active {
+      transform: ${isActive ? 'scale(0.97)' : 'scale(1)'};
+      filter: ${isActive ? 'brightness(85%)' : 'brightness(100%)'};
     }
   `;
 
@@ -42,7 +49,7 @@ export const IconButton: FC<IconButtonProps> = ({ height, width, onClick, iconSr
   `;
 
   return (
-    <StyledIconButton>
+    <StyledIconButton onClick={onClick} >
       <StyledIcon />
     </StyledIconButton>
   );
