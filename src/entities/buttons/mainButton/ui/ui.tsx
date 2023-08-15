@@ -83,3 +83,4 @@ export const MainButton: FC<MainButtonProps> = ({
   //   return <StyledButton style={{backgroundColor: color}}> Publish</StyledButton>;
   return <StyledButton onClick={onClick}>{children}</StyledButton>;
 };
+

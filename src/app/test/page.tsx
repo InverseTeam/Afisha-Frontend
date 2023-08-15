@@ -6,10 +6,12 @@ import { IconButton } from '@/entities/buttons/iconButton/ui/ui';
 import iconPlus from '../../../public/icon/Plus.svg';
 import { TextInput } from '@/entities/inputs/textInput';
 import { AuthButton } from '@/entities/buttons/authButton/ui/ui';
-import { SelectInput } from '@/entities/inputs/selectInput';
+import { SmartSelectInput } from '@/entities/inputs/smartSelectInput';
+// import Example from '@/entities/inputs/comboboxInput/ui/ui';
 
 export default function Test() {
   const [text, setText] = useState<string>('');
+  console.log('text', text)
   return (
     <div>
       {/* <MainButton
@@ -22,8 +24,8 @@ export default function Test() {
           console.log('ghghg');
         }}>
         Push
-      </MainButton>
-      <IconButton
+      </MainButton> */}
+      {/* <IconButton
         height="46px"
         width="46px"
         iconSrc={iconPlus.src}
@@ -48,8 +50,13 @@ export default function Test() {
         height="large">
         Опубликовать
       </AuthButton> */}
-      <div className='w-96 h-96 flex justify-center items-center'>
-        <SelectInput />
+      <div className="w-96 h-96 p-10 flex justify-center items-center">
+        <SmartSelectInput
+          value={text}
+          placeholder="text"
+          setValue={setText}
+        />
+        {/* <Example/> */}
       </div>
     </div>
   );
