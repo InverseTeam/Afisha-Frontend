@@ -9,18 +9,17 @@ import styled, { css } from 'styled-components';
 interface MainButtonProps {
   width: 'small' | 'medium' | 'large' | 'fit-content';
   height: 'small' | 'medium' | 'large' | 'fit-content';
-  color: string;
+  bgColor: string;
   isActive?: boolean;
   textColor: 'white' | 'black';
   onClick: () => void;
   children: React.ReactNode;
 }
 
-
 export const MainButton: FC<MainButtonProps> = ({
   width,
   height,
-  color,
+  bgColor,
   textColor,
   onClick,
   children,
@@ -28,7 +27,7 @@ export const MainButton: FC<MainButtonProps> = ({
 }) => {
   //   console.log(color)
   const StyledButton = styled.button`
-    background-color: ${isActive ? color : '#F6F6F6'};
+    background-color: ${isActive ? bgColor : '#F6F6F6'};
 
     width: ${
       width === 'small'
@@ -57,18 +56,16 @@ export const MainButton: FC<MainButtonProps> = ({
     border-radius: 15px;
     border:  'none';
 
-    color: ${isActive && textColor === 'white' ? '#fff' : '#191919'};
-    font-family: 'Mont', sans-serif;
+    color: ${isActive && textColor === 'white' ? '#fff' : '#222'};
+    font-family:'Mont', sans-serif;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: ${isActive ? '700' : '500'};
     line-height: 100%;
 
     padding: 16px 48px;
 
     transition: all 0.2s;
     button-disabled
-
-    box-shadow: 0 2px 10px var(--black-a7);
 
     &:hover {
       filter: ${isActive ? 'brightness(90%)' : 'brightness(100%)'};

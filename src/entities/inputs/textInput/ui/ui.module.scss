@@ -1,7 +1,5 @@
 $inputBgColor: #f8f8f8;
 $input-height: 58px;
-$placeholderColor: #7b7b7b;
-
 .input {
     height: $input-height;
     border: transparent;
@@ -18,23 +16,6 @@ $placeholderColor: #7b7b7b;
     background-color: $inputBgColor;
 
     cursor: pointer;
-}
-
-.input::-webkit-input-placeholder {
-    /* WebKit browsers */
-    color: $placeholderColor;
-}
-.input:-moz-placeholder {
-    /* Mozilla Firefox 4 to 18 */
-    color: $placeholderColor;
-}
-.input::-moz-placeholder {
-    /* Mozilla Firefox 19+ */
-    color: $placeholderColor;
-}
-.input:-ms-input-placeholder {
-    /* Internet Explorer 10+ */
-    color: $placeholderColor;
 }
 
 .inputWrap {
