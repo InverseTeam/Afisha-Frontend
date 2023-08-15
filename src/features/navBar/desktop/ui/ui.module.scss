@@ -1,0 +1,23 @@
+$navBarHeight: 76px;
+
+.elements {
+  margin: auto;
+}
+
+.logo {
+  clear: both;
+  float: left;
+}
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  height: $navBarHeight;
+
+  box-sizing: border-box;
+
+  background: #fff;
+  border-bottom: 1px solid hsla(0,0%,73%,.4);
+}
