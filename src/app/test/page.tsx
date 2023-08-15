@@ -6,12 +6,13 @@ import { IconButton } from '@/entities/buttons/iconButton/ui/ui';
 import iconPlus from '../../../public/icon/Plus.svg';
 import { TextInput } from '@/entities/inputs/textInput';
 import { AuthButton } from '@/entities/buttons/authButton/ui/ui';
+import { SelectInput } from '@/entities/inputs/selectInput';
 
 export default function Test() {
   const [text, setText] = useState<string>('');
   return (
     <div>
-      <MainButton
+      {/* <MainButton
         width="large"
         height="large"
         color="#528D3D"
@@ -46,7 +47,10 @@ export default function Test() {
         use={'disabled'}
         height="large">
         Опубликовать
-      </AuthButton>
+      </AuthButton> */}
+      <div className='w-96 h-96 flex justify-center items-center'>
+        <SelectInput />
+      </div>
     </div>
   );
 }
