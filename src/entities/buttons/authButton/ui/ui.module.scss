@@ -7,18 +7,19 @@
     border: none;
 
     color: #fff;
-    font-family: 'Mont_SemiBold', sans-serif;
+    font-family: 'Mont_SemiBold';
     font-size: 16px;
+    font-style: normal;
     font-weight: 700;
     line-height: 100%;
 
-    padding: 16px 48px;
     cursor: pointer;
 
-    transition: all 0.2s;
-    width: 100%;
+    transition: all 0.1s;
 
-    &:hover{
-        background-color: red;
-    }
+    width: 100%;
+}
+
+.transparentIsHover {
+    background: #7aac5c;
 }
