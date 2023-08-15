@@ -1,5 +1,4 @@
-'use client';
-import { FC, useState, FormEvent } from 'react';
+'use client'
 
 import { MainButton } from '@/entities/buttons/mainButton/ui/ui';
 import { IconButton } from '@/entities/buttons/iconButton/ui/ui';

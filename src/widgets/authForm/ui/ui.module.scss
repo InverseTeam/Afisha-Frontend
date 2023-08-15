@@ -1,0 +1,76 @@
+$bgScreenColor: #f2f2f2;
+$bgFormColor: #fff;
+$helpTextColor: #7b7b7b;
+$accentColor: #7aac5c;
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  &:before {
+    content: '';
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    background: url('./../../../../public/authBgImg/authBgImg.png') center / cover no-repeat;
+    filter: blur(15px);
+  }
+
+  .cardWrap {
+    display: block;
+    border-radius: 10px;
+    background-color: $bgFormColor;
+    min-width: 568px;
+    max-width: 568px;
+    height: auto;
+    padding-top: 78px;
+    padding-bottom: 64px;
+    padding-left: 64px;
+    padding-right: 64px;
+    @media screen and (max-width: 500px) {
+      display: flex !important;
+      min-width: 400px;
+    }
+    @media screen and (max-width: 420px) {
+      display: flex !important;
+      min-width: 350px;
+    }
+    @media screen and (max-width: 360px) {
+      display: flex !important;
+      min-width: auto;
+      width: 100%;
+      padding-top: 32px;
+      padding-bottom: 16px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  }
+}
+
+.helpText {
+  color: $helpTextColor;
+  text-align: center;
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  .terms {
+    color: $accentColor;
+    font-family: Mont, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    &:hover {
+      filter: brightness(90%);
+    }
+  }
+}
