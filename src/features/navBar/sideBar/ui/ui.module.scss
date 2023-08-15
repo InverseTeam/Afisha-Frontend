@@ -1,0 +1,23 @@
+$navBarHeight: 76px;
+$borderColor: #e1e3e6;
+$bgColor: #f6f6f6;
+
+.wrap {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  background-color: $bgColor;
+
+  gap: 3rem;
+  padding-bottom: 20vh;
+
+  z-index: 5;
+
+  border-top: 2px solid $borderColor;
+  transition: all 0.2s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

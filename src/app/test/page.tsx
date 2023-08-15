@@ -1,55 +1,21 @@
-'use client';
-import { FC, useState, FormEvent } from 'react';
+'use client'
 
-import { MainButton } from '@/entities/buttons/mainButton/ui/ui';
-import { IconButton } from '@/entities/buttons/iconButton/ui/ui';
-import iconPlus from '../../../public/icon/Plus.svg';
-import { TextInput } from '@/entities/inputs/textInput';
-import { SelectInput } from '@/entities/inputs/selectInput';
+import { NavBar } from '@/widgets/navBar';
+import { useRef, useState, useEffect } from 'react';
 
 export default function Test() {
-  const [text, setText] = useState<string>('');
-  return (
-    <div>
-      {/* <MainButton
-        width="large"
-        height="large"
-        color="#528D3D"
-        textColor="white"
-        isActive
-        onClick={() => {
-          console.log('ghghg');
-        }}>
-        Push
-      </MainButton>
-      <IconButton
-        height="46px"
-        width="46px"
-        iconSrc={iconPlus.src}
-        color="#528D3D"
-        onClick={() => { console.log('icon')}}
-      />
-      <TextInput
-        inputStyle={{ width: '100%' }}
-        inputName="Ответ"
-        inputPlaceholder="Ответ"
-        inputId="Ответ"
-        inputTypes="text"
-        inputValue={text}
-        setText={setText}
-      />
+  const [mobile, setMobile] = useState(false);
+  const width = useRef<number>(0);
 
-      <AuthButton
-        onClick={()=>{}}
-        width="fit-content"
-        btnStyle={{ marginBottom: '8px' }}
-        use={'disabled'}
-        height="large">
-        Опубликовать
-      </AuthButton> */}
-      <div className='w-96 h-96 flex justify-center items-center'>
-        <SelectInput />
-      </div>
-    </div>
+  useEffect(() => {
+    width.current = window && window.innerWidth;
+    if (width.current < 900) {
+      setMobile(true);
+    }
+  }, []);
+  return (
+    <>
+      <NavBar mobile={mobile} />
+    </>
   );
 }

@@ -1,3 +1,3 @@
-export function Home() {
-  return <>А за окном мелькают дни</>;
+export default function Home() {
+  return <><span>1111</span></>;
 }
