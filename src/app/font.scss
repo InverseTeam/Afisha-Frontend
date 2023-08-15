@@ -1,20 +1,23 @@
-@font-face {
-  font-family: 'Mont_Regular';
-  src: url('../../public/fonts/Mont-Regular.woff');
-  src: local('Mont_Regular'), url('../../public/fonts/Mont-Regular.woff2') format('woff2');
-  src: local('Mont_Regular'), url('../../public/fonts/Mont-Regular.woff') format('woff');
-}
+  @font-face {
+    font-family: 'Mont';
+    src: url('../../public/fonts/Mont-Regular.woff');
+    src: local('Mont_Regular'), url('../../public/fonts/Mont-Regular.woff2') format('woff2');
+    src: local('Mont_Regular'), url('../../public/fonts/Mont-Regular.woff') format('woff');
+    font-weight: normal;
+  }
 
-@font-face {
-  font-family: 'Mont_SemiBold';
-  src: url('../../public/fonts/Mont-SemiBold.woff');
-  src: local('Mont_SemiBold'), url('../../public/fonts/Mont-SemiBold.woff2') format('woff2');
-  src: local('Mont_SemiBold'), url('../../public/fonts/Mont-SemiBold.woff') format('woff');
-}
+  @font-face {
+    font-family: 'Mont';
+    src: url('../../public/fonts/Mont-SemiBold.woff');
+    src: local('Mont_SemiBold'), url('../../public/fonts/Mont-SemiBold.woff2') format('woff2');
+    src: local('Mont_SemiBold'), url('../../public/fonts/Mont-SemiBold.woff') format('woff');
+    font-weight: 500;
+  }
 
-@font-face {
-  font-family: 'Mont_Bold';
-  src: url('../../public/fonts/Mont-Bold.woff');
-  src: local('Mont_Bold'), url('../../public//fonts//Mont-Bold.woff2') format('woff2');
-  src: local('Mont_Bold'), url('../../public/fonts/Mont-Bold.woff') format('woff');
-}
+  @font-face {
+    font-family: 'Mont';
+    src: url('../../public/fonts/Mont-Bold.woff');
+    src: local('Mont_Bold'), url('../../public//fonts//Mont-Bold.woff2') format('woff2');
+    src: local('Mont_Bold'), url('../../public/fonts/Mont-Bold.woff') format('woff');
+    font-weight: bold;
+  }

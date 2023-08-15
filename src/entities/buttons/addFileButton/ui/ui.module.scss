@@ -1,0 +1,66 @@
+.inputHidden {
+    position: absolute;
+    width: 1px;
+    height: 1x;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    background: transparent;
+    overflow: hidden;
+}
+
+.inputFile {
+    cursor: pointer;
+}
+
+.inputFileWrap {
+    border-radius: 10px;
+    background: #f8f8fa;
+    padding: 25px 32px 12px 32px;
+
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 16px;
+}
+
+.wrap {
+    display: flex;
+    align-items: center;
+    gap:16px;
+}
+
+.fileText {
+    color: #7b7b7b;
+    font-family: 'Mont_SemiBold', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.title {
+    color: #222;
+    font-family: 'Mont_Bold', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 800;
+}
+
+.text {
+    color: #7b7b7b;
+    font-family: 'Mont_SemiBold', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -1px;
+}

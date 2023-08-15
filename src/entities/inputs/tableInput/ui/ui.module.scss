@@ -1,0 +1,38 @@
+$input-height: 32px;
+$inputBgColor: #f8f8f8;
+
+.input {
+    height: auto;
+    border: transparent;
+    outline: none;
+    border-radius: 6px;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    font-family: 'Mont_SemiBold', sans-serif;
+    color: #222;
+
+    background-color: $inputBgColor;
+
+    cursor: pointer;
+
+    max-width: 128px;
+}
+
+.staticInput {
+    color: #434343;
+    font-family: 'Mont_SemiBold', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.wrap {
+    width: fit-content;
+}

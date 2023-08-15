@@ -1,0 +1,52 @@
+$inputBgColor: #f8f8f8;
+$inputBorder: #ddd;
+$input-height: 60px;
+
+.input {
+    height: $input-height;
+    border: transparent;
+    outline: none;
+    border-radius: 15px;
+    width: 100%;
+    padding: 10px 18px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    font-family: 'Mont_SemiBold', sans-serif;
+    color: #222;
+
+    background-color: $inputBgColor;
+}
+
+.icon {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    transition: 0.2s;
+}
+
+.iconWrap {
+    border-radius: 8px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: none;
+    height: $input-height;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    width: $input-height;
+    background-color: $inputBgColor;
+}
+
+.wrap {
+    display: flex;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+
+    position: relative;
+}

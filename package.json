@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/colors": "^2.0.1",
     "@radix-ui/themes": "^1.0.0",
+    "@stitches/react": "^1.2.8",
     "@types/node": "20.5.0",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
@@ -19,6 +21,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.65.1",
+    "styled-components": "^6.0.7",
     "typescript": "5.1.6"
   }
 }
