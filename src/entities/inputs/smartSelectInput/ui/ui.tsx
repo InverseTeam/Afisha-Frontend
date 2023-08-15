@@ -10,6 +10,8 @@ interface SmartSelectInputProps {
   placeholder: string;
 }
 
+//TODO: add get request for places
+
 const people = [
   { id: 1, name: 'Wade Cooper' },
   { id: 2, name: 'Arlene Mccoy' },
@@ -36,10 +38,10 @@ export const SmartSelectInput: FC<SmartSelectInputProps> = ({placeholder, value,
     <div className="w-full h-14">
       <Combobox value={value} onChange={setValue}>
         <div className="relative mt-1 h-14 border-none">
-          <div className="relative w-full border-none cursor-default overflow-hidden rounded-lg bg-lightGray text-left focus:outline-none  sm:text-sm">
+          <div className="relative w-full border-none cursor-default overflow-hidden rounded-lg bg-lightGray text-left  sm:text-sm">
             <Combobox.Input
               placeholder={placeholder}
-              className="w-full h-14 box-border border-none px-4 pr-6 text-base font-bold leading-5 text-black2 bg-lightGray text-gray-900 focus: border-button"
+              className="w-full h-14 box-border border-none px-4 pr-6 text-base font-bold leading-5 text-black2 focus:outline-none focus: border focus: border-solid focus: border-borderColor bg-lightGray text-gray-900 focus: border-button"
               displayValue={(person) => person.name}
               onChange={(event) => setQuery(event.target.value)}
             />

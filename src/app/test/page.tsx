@@ -1,10 +1,10 @@
 'use client'
 
+import { useState } from 'react'
 import { MainButton } from '@/entities/buttons/mainButton/ui/ui';
 import { IconButton } from '@/entities/buttons/iconButton/ui/ui';
 import iconPlus from '../../../public/icon/Plus.svg';
 import { TextInput } from '@/entities/inputs/textInput';
-import { AuthButton } from '@/entities/buttons/authButton/ui/ui';
 import { SmartSelectInput } from '@/entities/inputs/smartSelectInput';
 // import Example from '@/entities/inputs/comboboxInput/ui/ui';
 

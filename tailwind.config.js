@@ -18,6 +18,7 @@ module.exports = {
               lightGray: '#7B7B7B',
               gold: '#FFC55C',
               lightGray: '#F8F8FA',
+              borderColor: '#EBEBEB',
           },
           text: {
               14: '14',
@@ -35,8 +36,8 @@ module.exports = {
           fontFamily: {
             mont: 'Mont',
           },
-          border: {
-            border-button: '1px solid #EBEBEB',
+          border:{
+            borderInput: '1px solid #EBEBEB',
           }
       },
   },
