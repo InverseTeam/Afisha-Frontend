@@ -1,5 +1,5 @@
 'use client';
-import { FC, useEffect, useState, MouseEvent } from 'react';
+import { useEffect, useState, MouseEvent } from 'react';
 import styles from './ui.module.scss';
 import { Gapped } from '@/shared/gapped/ui/ui';
 import { InverseAfishaLogo } from '@/shared/inverseLogo';
@@ -32,6 +32,7 @@ export const LoginForm = () => {
   const AuthHandleClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     Post({ mail: inputMailValue, password: inputPasswordValue });
+    router.push('/admin')
   };
 
   return (
@@ -68,16 +69,6 @@ export const LoginForm = () => {
               width="fit-content"
               height="fit-content">
               Войти
-            </MainButton>
-          </Gapped>
-          <Gapped className={styles.helpWrap} gap="16px" vertical verticalAlign="middle">
-            <MainButton
-              bgColor="#7AAC5C"
-              textColor="white"
-              onClick={() => router.push('register')}
-              width="fit-content"
-              height="fit-content">
-              Регистрация
             </MainButton>
             <span className={styles.helpText}>
               Входя в систему, вы принимаете{' '}

@@ -17,7 +17,7 @@ $accentColor: #7aac5c;
     top: 0;
     bottom: 0;
     z-index: -1;
-    background: url('./../../../../../public/authBgImg/authBgImg.png') center / cover no-repeat;
+    background: url('./../../../../public/authBgImg/authBgImg.png') center / cover no-repeat;
     filter: blur(15px);
   }
 
@@ -28,8 +28,8 @@ $accentColor: #7aac5c;
     min-width: 568px;
     max-width: 568px;
     height: auto;
-    padding-top: 86px;
-    padding-bottom: 86px;
+    padding-top: 78px;
+    padding-bottom: 64px;
     padding-left: 64px;
     padding-right: 64px;
     @media screen and (max-width: 500px) {

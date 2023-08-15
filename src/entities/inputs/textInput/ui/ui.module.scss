@@ -1,101 +1,101 @@
 $inputBgColor: #f8f8f8;
 $input-height: 58px;
 .input {
-    height: $input-height;
-    border: transparent;
-    outline: none;
-    border-radius: 15px;
-    width: 100%;
-    padding: 10px 18px;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    font-family: 'Mont_SemiBold', sans-serif;
-    color: #222;
+  height: $input-height;
+  border: transparent;
+  outline: none;
+  border-radius: 15px;
+  width: 100%;
+  padding: 10px 18px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  font-family: Mont, sans-serif;
+  color: #222;
 
-    background-color: $inputBgColor;
+  background-color: $inputBgColor;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .inputWrap {
-    display: flex;
-    height: auto;
-    align-items: center;
+  display: flex;
+  height: auto;
+  align-items: center;
 }
 
 .iconWrap {
-    border-radius: 8px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border: none;
-    height: $input-height;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: $input-height;
-    z-index: 1;
-    background-color: $inputBgColor;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: none;
+  height: $input-height;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $input-height;
+  z-index: 1;
+  background-color: $inputBgColor;
 }
 
 .icon {
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 28px;
-    height: 28px;
-    transition: 0.2s;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 28px;
+  height: 28px;
+  transition: 0.2s;
 }
 
 .dropDownItems {
-    flex-direction: column;
-    align-items: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
 
-    width: 100%;
-    max-height: 173.1px;
+  width: 100%;
+  max-height: 173.1px;
 
-    border-radius: 15px;
-    background: #f8f8fa;
-    box-shadow: 5px 5px 25px 0px rgba(203, 203, 203, 0.1);
+  border-radius: 15px;
+  background: #f8f8fa;
+  box-shadow: 5px 5px 25px 0px rgba(203, 203, 203, 0.1);
 
-    padding: 10px;
+  padding: 10px;
 
-    list-style-type: none;
-    border: 1px solid #EBEBEB;
-    overflow-y: scroll
+  list-style-type: none;
+  border: 1px solid #ebebeb;
+  overflow-y: scroll;
 }
 
 .wrap {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    gap: 6px;
+  gap: 6px;
 
-    width: fit-content;
+  width: fit-content;
 }
 
 .dropDownItem {
-    color: #0f0f0f;
-    font-family: 'Mont_SemiBold';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
+  color: #0f0f0f;
+  font-family: Mont, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
 
-    padding: 14px 14px;
-    height: 50.5px;
+  padding: 14px 14px;
+  height: 50.5px;
 
-    transition: all 0.2s;
-    &:hover {
-        background-color: #fff;
-        border-radius: 15px;
-    }
+  transition: all 0.2s;
+  &:hover {
+    background-color: #fff;
+    border-radius: 15px;
+  }
 }
 
 .showItemsUl {
-    display: block !important;
+  display: block !important;
 }
 
 .hideItemsUl {
-    display: none !important;
+  display: none !important;
 }
