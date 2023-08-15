@@ -5,7 +5,6 @@ import { MainButton } from '@/entities/buttons/mainButton/ui/ui';
 import { IconButton } from '@/entities/buttons/iconButton/ui/ui';
 import iconPlus from '../../../public/icon/Plus.svg';
 import { TextInput } from '@/entities/inputs/textInput';
-import { AuthButton } from '@/entities/buttons/authButton/ui/ui';
 import { SelectInput } from '@/entities/inputs/selectInput';
 
 export default function Test() {

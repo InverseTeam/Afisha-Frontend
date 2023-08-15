@@ -1,4 +1,5 @@
-import { LoginForm } from '@/widgets/authForm/loginForm';
+import { LoginForm } from '@/widgets/authForm';
+
 export default function Home() {
   return (
     <main>
