@@ -1,16 +1,13 @@
 import styles from './ui.module.scss';
-import { Get, publishHandleClick, rejectHandleClick } from '../model/index';
+import { Get } from '../model/';
 import { useEffect, useState } from 'react';
 import { EventData } from '@/shared/interfaces/event';
 import TicketIcon from '../../../../../public/icon/ModeratorCardTicketIcon.svg';
 import Image from 'next/image';
 import { Gapped } from '@/shared/gapped/ui/ui';
-import { MainButton } from '@/entities/buttons/mainButton';
 import { parseISO } from 'date-fns';
-import { IconButton } from '@/entities/buttons/iconButton';
-import SettingIcon from '../../../../../public/icon/CardSettingsIcon.svg';
 
-export const ModeratorEventCard = () => {
+export const PublishedEventCard = () => {
   const [postData, setPostData] = useState<EventData[] | null>(null);
   useEffect(() => {
     const getEvent = async () => {
@@ -33,9 +30,7 @@ export const ModeratorEventCard = () => {
     'ноября',
     'декабря',
   ];
-  const handleClick = () => {
-    return;
-  };
+
   return (
     <>
       <div className={styles.cardRenderWrap}>
@@ -55,15 +50,6 @@ export const ModeratorEventCard = () => {
                     }}
                     className={styles.bg}>
                     <span className={styles.buttonDate}>{formattedDate}</span>
-                    <span className={styles.settingIcon}>
-                      <IconButton
-                        iconSrc={SettingIcon.src}
-                        onClick={handleClick}
-                        height="48px"
-                        width="48px"
-                        color="#F8F8FA"
-                      />
-                    </span>
                   </div>
                 </div>
                 <main className={styles.info}>
@@ -83,22 +69,6 @@ export const ModeratorEventCard = () => {
                     className={styles.platform}>
                     {event.platform ? event.platform.name : 'Место не найдено'}
                   </h3>
-                  <MainButton
-                    onClick={() => publishHandleClick(event.id)}
-                    height="large"
-                    width="fit-content"
-                    bgColor="#7AAC5C"
-                    textColor="white">
-                    Опубликовать
-                  </MainButton>
-                  <MainButton
-                    onClick={() => rejectHandleClick(event.id)}
-                    height="large"
-                    width="fit-content"
-                    bgColor="#fff"
-                    textColor="black">
-                    Отклонить
-                  </MainButton>
                 </main>
               </div>
             );

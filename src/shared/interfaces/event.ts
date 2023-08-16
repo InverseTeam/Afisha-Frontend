@@ -1,7 +1,5 @@
-/* Cards */
-
 export interface EventData {
-  id: number;
+  id: string;
   name: string;
   cover: string;
   description: string;
@@ -22,7 +20,7 @@ export interface Platform {
   id: number;
   name: string;
   description: string;
-  location_data: string;
+  location_data?: string;
 }
 export interface Tags {
   id: number;
@@ -37,4 +35,3 @@ export interface Images {
   id: number;
   image: string;
 }
-/////////////////////////////////////////////////////////////////////////////
