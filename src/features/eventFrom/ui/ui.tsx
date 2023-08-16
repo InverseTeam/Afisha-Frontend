@@ -1,11 +1,13 @@
 'use client';
 
+import { SelectInput } from '@/entities/inputs/selectInput';
+import { SmartSelectInput } from '@/entities/inputs/smartSelectInput';
 import { TextInput } from '@/entities/inputs/textInput';
 import { EventData } from '@/shared/interfaces/event';
 import { useState, FC, FormEvent } from 'react';
 
 export const EventForm: FC = () => {
-  const [form, setForm] = useState<EventData> ({
+  const [form, setForm] = useState<EventData>({
     id: '',
     name: '',
     cover: '',
@@ -20,16 +22,16 @@ export const EventForm: FC = () => {
     platform: [],
     tags: [],
     category: [],
-    images: []
+    images: [],
   });
 
   const changeHandler = (event: FormEvent<HTMLInputElement>) => {
-     const input = event.target as HTMLInputElement;
+    const input = event.target as HTMLInputElement;
 
     setForm({ ...form, [input.name]: input.value });
   };
 
-  console.log(form)
+  console.log(form);
 
   return (
     <div>
@@ -50,6 +52,9 @@ export const EventForm: FC = () => {
           setText={() => {}}
           handler={() => changeHandler}
         />
+
+        {/* <SmartSelectInput value={text} placeholder="text" setValue={setText} />
+        <SelectInput value={text} placeholder="text" setValue={() => setText}/> */}
       </section>
       <section></section>
     </div>

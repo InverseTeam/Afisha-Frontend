@@ -13,7 +13,7 @@ interface DataInputProps {
   inputWidth?: 'large' | 'fit-content';
   inputStyle?: object;
   inputMaxLength?: number;
-  handler?: () => void;
+  handler: (event: FormEvent<HTMLInputElement>) => void;
 }
 
 export const TextInput: FC<DataInputProps> = ({

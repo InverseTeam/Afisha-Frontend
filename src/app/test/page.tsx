@@ -24,6 +24,7 @@ export default function Test() {
         inputTypes="text"
         inputValue={text}
         setText={setText}
+        handler={()=>{}}
       />
 
       
@@ -31,7 +32,7 @@ export default function Test() {
         {/* <SmartSelectInput value={text} placeholder="text" setValue={setText} /> */}
         {/* <Example/> */}
 
-        <SelectInput value={text} placeholder="text" setValue={setText}/>
+        <SelectInput value={text} placeholder="text" setValue={() => setText}/>
       </div>
     </>
   );

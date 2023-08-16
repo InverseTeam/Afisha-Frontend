@@ -3,7 +3,7 @@
 import { NewEventForm } from '@/widgets/newEventForm';
 // import { NavBar } from '@/widgets/navBar/ui/ui';
 import { useState, useRef, useEffect } from 'react';
-import { Gapped } from '@/shared/gapped';
+// import { Gapped } from '@/shared/gapped';
 
 export default function Home() {
   const [mobile, setMobile] = useState(false);
