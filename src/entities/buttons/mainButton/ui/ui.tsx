@@ -1,7 +1,5 @@
-'use client';
-
-import { FC, HTMLProps, useState } from 'react';
-import styled, { css } from 'styled-components';
+import { FC } from 'react';
+import styled from 'styled-components';
 
 // IMPROVE: improve type for button props
 

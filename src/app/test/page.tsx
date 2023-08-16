@@ -1,5 +1,8 @@
-'use client'
+'use client';
 
+import { EventPageHeader } from '@/features/eventPageHeader';
+import { Gapped } from '@/shared/gapped/ui/ui';
+import { PageLayout } from '@/shared/layouts/pageLayout';
 import { NavBar } from '@/widgets/navBar';
 import { useRef, useState, useEffect } from 'react';
 
@@ -13,9 +16,22 @@ export default function Test() {
       setMobile(true);
     }
   }, []);
+  const [moderatorBtnActive, setModeratorBtnActive] = useState<boolean>(true);
   return (
     <>
-      <NavBar mobile={mobile} />
+      <Gapped vertical gap="32px">
+        <NavBar mobile={mobile} />
+        <main>
+          <PageLayout>
+            <EventPageHeader
+              pageTitle="Мероприятия"
+              leftBtnTitle="На модерации"
+              rightBtnTitle="Опубликованные"
+              setActive={setModeratorBtnActive}
+            />
+          </PageLayout>
+        </main>
+      </Gapped>
     </>
   );
 }
