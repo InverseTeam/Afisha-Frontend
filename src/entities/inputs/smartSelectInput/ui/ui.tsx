@@ -3,11 +3,11 @@ import { Combobox, Transition } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import { getPlatforms } from '../model/model';
 import { PlatformData } from '@/shared/interfaces/event';
+import './ui.scss';
 
 interface SmartSelectInputProps {
   value: string;
   setValue: () => void;
-  fetchUrl?: string;
   placeholder: string;
 }
 
@@ -22,20 +22,15 @@ const people = [
   { id: 6, name: 'Hellen Schmidt' },
 ];
 
-export const SmartSelectInput: FC<SmartSelectInputProps> = ({
-  placeholder,
-  value,
-  setValue,
-  fetchUrl,
-}) => {
+export const SmartSelectInput: FC<SmartSelectInputProps> = ({ placeholder, value, setValue }) => {
   const [query, setQuery] = useState('');
-  const [platforms, setPlatforms] = useState<PlatformData[]>([])
+  const [platforms, setPlatforms] = useState<PlatformData[]>([]);
 
-  const fetchPlatforms = async () =>{
+  const fetchPlatforms = async () => {
     const fetchPlatformsData = await getPlatforms();
 
     setPlatforms(fetchPlatformsData);
-  }
+  };
 
   useEffect(() => {
     // fetchPlatforms();
@@ -55,13 +50,23 @@ export const SmartSelectInput: FC<SmartSelectInputProps> = ({
     <div className="w-full h-full">
       <Combobox value={value} onChange={setValue}>
         <div className="relative mt-1 h-14 border-none">
-          <div className="relative w-full border-none cursor-default overflow-hidden rounded-lg bg-lightGray text-left  sm:text-sm">
-            <Combobox.Input
-              placeholder={placeholder}
-              className="w-full h-14 box-border px-4 pr-6 text-base font-bold leading-5 text-black2 focus:outline-none focus: border focus: border-solid focus: border-borderColor bg-lightGray text-gray-900 focus: border-button"
-              displayValue={(person: any) => person.name}
-              onChange={(event) => setQuery(event.target.value)}
-            />
+          <div className="relative w-full border-none cursor-default overflow-hidden text-left  sm:text-sm">
+            <div className="input-layout relative w-96 max-w-xl">
+              <Combobox.Input
+              placeholder=" "
+                className="input peer transition-all outline-none select-all box-border px-4 pr-6 text-base bold leading-5 text-black2 focus:outline-none focus: border focus: border-solid focus: border-borderColor bg-lightGray text-gray-900 focus: border-button"
+                displayValue={(person: any) => person.name}
+                onChange={(event) => setQuery(event.target.value)}
+              />
+              {/* <input
+                className="input peer transition-all outline-none select-all"
+                type="text"
+                placeholder=" "
+              /> */}
+              <label className="label text-lightGray text-xs peer-focus:text-xs peer-placeholder-shown:text-lg peer-focus:px-1 peer-placeholder-shown:px-0 bg-transparent peer-focus:bg-transparent peer-placeholder-shown:bg-transparent m-0 my-1 peer-focus:my-1 peer-placeholder-shown:m-auto -translate-y-1/5 peer-focus:-translate-y-1/5 peer-placeholder-shown:translate-y-0">
+                {placeholder}
+              </label>
+            </div>
             <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
               <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
               {/* <i
@@ -95,7 +100,9 @@ export const SmartSelectInput: FC<SmartSelectInputProps> = ({
                     {({ selected, active }) => (
                       <>
                         <span
-                          className={`block truncate font-base ${selected ? 'font-semibold' : 'font-normal'}`}>
+                          className={`block truncate font-base ${
+                            selected ? 'bold' : 'font-normal'
+                          }`}>
                           {person.name}
                         </span>
                         {selected ? (
