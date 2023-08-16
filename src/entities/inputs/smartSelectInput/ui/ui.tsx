@@ -1,6 +1,8 @@
-import { Fragment, useState, FC } from 'react';
+import { Fragment, useState, FC, useEffect } from 'react';
 import { Combobox, Transition } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
+import { getPlatforms } from '../model/model';
+import { PlatformData } from '@/shared/interfaces/event';
 
 interface SmartSelectInputProps {
   value: string;
@@ -27,6 +29,17 @@ export const SmartSelectInput: FC<SmartSelectInputProps> = ({
   fetchUrl,
 }) => {
   const [query, setQuery] = useState('');
+  const [platforms, setPlatforms] = useState<PlatformData[]>([])
+
+  const fetchPlatforms = async () =>{
+    const fetchPlatformsData = await getPlatforms();
+
+    setPlatforms(fetchPlatformsData);
+  }
+
+  useEffect(() => {
+    // fetchPlatforms();
+  }, []);
 
   const filteredPeople =
     query === ''
@@ -39,7 +52,7 @@ export const SmartSelectInput: FC<SmartSelectInputProps> = ({
         );
 
   return (
-    <div className="w-full h-14">
+    <div className="w-full h-full">
       <Combobox value={value} onChange={setValue}>
         <div className="relative mt-1 h-14 border-none">
           <div className="relative w-full border-none cursor-default overflow-hidden rounded-lg bg-lightGray text-left  sm:text-sm">
@@ -64,7 +77,7 @@ export const SmartSelectInput: FC<SmartSelectInputProps> = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
             afterLeave={() => setQuery('')}>
-            <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+            <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-2xl p-2 bg-lightGray py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
               {filteredPeople.length === 0 && query !== '' ? (
                 <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                   Nothing found.
@@ -74,15 +87,15 @@ export const SmartSelectInput: FC<SmartSelectInputProps> = ({
                   <Combobox.Option
                     key={person.id}
                     className={({ active }) =>
-                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                        active ? 'bg-lightGreen text-white' : 'text-gray-900'
+                      `relative cursor-default select-none py-2 pl-10 pr-4 rounded-xl h-14 flex items-center ${
+                        active ? 'bg-white' : 'text-gray-900'
                       }`
                     }
                     value={person}>
                     {({ selected, active }) => (
                       <>
                         <span
-                          className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
+                          className={`block truncate font-base ${selected ? 'font-semibold' : 'font-normal'}`}>
                           {person.name}
                         </span>
                         {selected ? (
