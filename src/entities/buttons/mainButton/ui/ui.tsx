@@ -11,7 +11,7 @@ interface MainButtonProps {
   bgColor: string;
   isActive?: boolean;
   textColor: 'white' | 'black';
-  onClick: () => void;
+  onClick: () => {};
   children: React.ReactNode;
 }
 

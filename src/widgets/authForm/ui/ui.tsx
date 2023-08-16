@@ -7,7 +7,7 @@ import { AuthInput } from '@/entities/inputs/authInput';
 import { MainButton } from '@/entities/buttons/mainButton';
 import Link from 'next/link';
 import { TextInput } from '@/entities/inputs/textInput';
-import { Post } from '../module';
+import { Post, postLogin } from '../module';
 import { useRouter } from 'next/navigation';
 
 export const LoginForm = () => {
@@ -30,15 +30,14 @@ export const LoginForm = () => {
   }, [inputMailValue.length, inputPasswordValue.length]);
 
   const AuthHandleClick = async (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    try {
-      const res: any = await Post({ mail: inputMailValue, password: inputPasswordValue });
-      if (res && res.auth_token) {
-        router.push('/admin');
-      }
-    } catch (error) {
-      alert('Введены неверные данные');
-    }
+
+    // event.preventDefault();
+    const userData: { email: string; password: string } = {
+      email: inputMailValue,
+      password: inputPasswordValue,
+    };
+    console.log(userData)
+    postLogin(userData);
   };
 
   return (
@@ -72,7 +71,7 @@ export const LoginForm = () => {
               bgColor="#7AAC5C"
               textColor="white"
               isActive={isButtonDisabled}
-              onClick={() => AuthHandleClick}
+              onClick={AuthHandleClick}
               width="fit-content"
               height="fit-content">
               Войти
