@@ -1,7 +1,5 @@
-'use client';
-
-import { FC, HTMLProps, useState } from 'react';
-import styled, { css } from 'styled-components';
+import { FC } from 'react';
+import styled from 'styled-components';
 
 // IMPROVE: improve type for button props
 
@@ -11,7 +9,7 @@ interface MainButtonProps {
   bgColor: string;
   isActive?: boolean;
   textColor: 'white' | 'black';
-  onClick: () => void;
+  onClick: () => {};
   children: React.ReactNode;
 }
 
@@ -53,7 +51,7 @@ export const MainButton: FC<MainButtonProps> = ({
     color: ${isActive && textColor === 'white' ? '#fff' : '#222'};
     font-family: 'Mont', sans-serif;
     font-size: 16px;
-    font-weight: ${isActive ? '700' : '500'};
+    font-weight: ${isActive ? '500' : '500'};
     line-height: 100%;
 
     padding: 16px 48px;
@@ -71,4 +69,3 @@ export const MainButton: FC<MainButtonProps> = ({
 
   return <StyledButton onClick={onClick}>{children}</StyledButton>;
 };
-

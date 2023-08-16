@@ -8,7 +8,7 @@ if (typeof document !== 'undefined') {
         const cookies = parse(document.cookie);
         return cookies[name] || null;
     };
-    Token = getCookie('accentToken');
+    Token = getCookie('accessToken');
 }
 
 const BASE_URL = 'https://inverse-tracker.store/api';

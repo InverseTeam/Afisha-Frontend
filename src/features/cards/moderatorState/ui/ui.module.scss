@@ -1,0 +1,121 @@
+$accentColor: #7aac5c;
+$white: #fff;
+$cardBgColor: #f8f8fa;
+$platformColor: #7b7b7b;
+.cardRenderWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+  gap: 16px;
+  width: 100%;
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    min-width: 400px;
+    transition: all 0.2s;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    @media screen and (max-width: 1460px) {
+      min-width: 380px;
+    }
+    @media screen and (max-width: 1245px) {
+      min-width: 480px;
+    }
+    @media screen and (max-width: 1040px) {
+      min-width: 420px;
+    }
+    @media screen and (max-width: 930px) {
+      min-width: 100%;
+    }
+    .cover {
+      width: 100%;
+      position: relative;
+
+      .bg {
+        width: 100%;
+        height: 128px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 14px 14px 0px 0px;
+
+        .buttonDate {
+          position: absolute;
+          border-radius: 15px;
+          background: $accentColor;
+          height: 36px;
+          padding: 12px 24px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $white;
+          margin-top: 16px;
+          margin-left: 20px;
+        }
+        .settingIcon {
+          position: absolute;
+          top: 10px;
+          width: 48px;
+          height: 48px;
+          display: flex;
+          left: calc(100% - 58px);
+
+          @media screen and (max-width: 1460px) {
+            left: calc(100% - 68px);
+          }
+          @media screen and (max-width: 1245px) {
+            left: calc(100% - 64px);
+          }
+          @media screen and (max-width: 1040px) {
+            left: calc(100% - 58px);
+          }
+          @media screen and (max-width: 930px) {
+            left: calc(100% - 64px);
+          }
+          @media screen and (max-width: 600px) {
+            left: calc(100% - 58px);
+          }
+        }
+      }
+    }
+    .info {
+      width: 100%;
+      border-radius: 0px 0px 8px 8px;
+      padding: 16px 24px;
+      background: $cardBgColor;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 16px;
+
+      gap: 16px;
+
+      .ticket {
+        font-family: Mont;
+        font-size: 14px;
+        font-weight: 700;
+        color: $accentColor;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .cardTitle {
+        font-family: Mont;
+        font-size: 24px;
+        font-weight: 800;
+        color: #222;
+      }
+      .platform {
+        font-family: Mont;
+        font-size: 16px;
+        font-weight: 800;
+        color: $platformColor;
+      }
+    }
+  }
+}

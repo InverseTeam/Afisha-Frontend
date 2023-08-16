@@ -1,9 +1,9 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import styles from './ui.module.scss';
 
-export const HamburgerMenu: FC = () => {
+export const HamburgerMenu = () => {
   const [opened, setOpened] = useState<boolean>(false);
   return (
     <div className={styles.burgerContainer}>

@@ -1,0 +1,38 @@
+$defaultBtnColor: #f8f8fa;
+$defaultTextColor: #7b7b7b;
+$activeBtnColor: #7aac5c;
+$activeTextColor: #fff;
+
+.tabBtn {
+  transition: all 0.2s;
+  cursor: pointer;
+  border-radius: 15px;
+  border: 'none';
+
+  min-width: 200px;
+  height: 48px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 16px 48px;
+
+  background: $defaultBtnColor;
+  color: $defaultTextColor;
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
+  &:active {
+    transform: scale(0.99);
+    filter: brightness(85%);
+  }
+}
+
+.active {
+  background: $activeBtnColor;
+  color: $activeTextColor;
+}
