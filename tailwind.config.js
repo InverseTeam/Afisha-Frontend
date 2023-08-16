@@ -29,6 +29,7 @@ module.exports = {
           width: {
               150: '600',
               90: '450',
+              33: '433px',
           },
           margin: {
               15: '60',
@@ -39,6 +40,7 @@ module.exports = {
           border:{
             borderInput: '1px solid #EBEBEB',
           }
+          
       },
   },
   plugins: [],

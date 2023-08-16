@@ -10,7 +10,13 @@ import { parseISO } from 'date-fns';
 import { IconButton } from '@/entities/buttons/iconButton';
 import SettingIcon from '../../../../../public/icon/CardSettingsIcon.svg';
 
-export const ModeratorEventCard = () => {
+export const ModeratorEventCard = ({
+  setModal,
+  modal,
+}: {
+  modal: boolean;
+  setModal: (arg: boolean) => void;
+}) => {
   const [postData, setPostData] = useState<EventData[] | null>(null);
   useEffect(() => {
     const getEvent = async () => {
@@ -54,7 +60,9 @@ export const ModeratorEventCard = () => {
                       display: 'block',
                     }}
                     className={styles.bg}>
-                    <span className={styles.buttonDate}>{formattedDate}</span>
+                    <span className={styles.buttonDate}>
+                      {formattedDate ? formattedDate : '18.08.2023'}
+                    </span>
                     <span className={styles.settingIcon}>
                       <IconButton
                         iconSrc={SettingIcon.src}

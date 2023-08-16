@@ -4,7 +4,7 @@ import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import './ui.scss';
 
 interface SmartSelectInputProps {
-  value: string;
+  item: string;
   setValue: () => {};
   placeholder: string;
   listVariant: string[];
@@ -13,19 +13,20 @@ interface SmartSelectInputProps {
 
 export const SelectInput: FC<SmartSelectInputProps> = ({
   placeholder,
-  value,
+  item,
   setValue,
   listVariant,
 }) => {
 
-  console.log(listVariant)
+  console.log(item)
+  
   return (
-    <div className="w-full h-full">
-      <Listbox value={value} onChange={setValue}>
-        <div className="relative mt-1 h-14">
-          <Listbox.Button className="relative h-14 w-full cursor-default rounded-lg bg-lightGray py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+    <div className="w-full">
+      <Listbox value={item} onChange={setValue}>
+        <div className="relative h-14">
+          <Listbox.Button className="relative h-14 w-full cursor-default rounded-2xl bg-lightGray py-2 pl-3 pr-10 text-left  focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
             <span className="block truncate w-full">
-              {value.length === 0 ? placeholder : value}
+              {item.length === 0 ? placeholder : item}
             </span>
             {/* <div className="input-layout relative w-96 max-w-xl">
               <input
@@ -55,7 +56,7 @@ export const SelectInput: FC<SmartSelectInputProps> = ({
                 <Listbox.Option
                   key={personIdx}
                   className={({ active }) =>
-                    `relative cursor-default select-none py-2 pl-10 pr-4 rounded-xl h-14 flex items-center ${
+                    `cursor-default select-none py-2 pl-10 pr-4 rounded-xl h-14 flex items-center ${
                       active ? 'bg-white' : 'text-gray-900'
                     }`
                   }

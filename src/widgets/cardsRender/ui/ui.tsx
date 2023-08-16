@@ -5,8 +5,11 @@ import { ModeratorEventCard } from '@/features/cards/moderatorState';
 import { Gapped } from '@/shared/gapped/ui/ui';
 import { useState } from 'react';
 import { PublishedEventCard } from '@/features/cards/publishedState';
+
 export const EventForm = () => {
   const [moderatorBtnActive, setModeratorBtnActive] = useState<boolean>(true);
+  const [modalActive, setModalActive] = useState<boolean>(false);
+  
   return (
     <>
       <main>
@@ -18,7 +21,11 @@ export const EventForm = () => {
               rightBtnTitle="Опубликованные"
               setActive={setModeratorBtnActive}
             />
-            {moderatorBtnActive ? <ModeratorEventCard /> : <PublishedEventCard />}
+            {moderatorBtnActive ? (
+              <ModeratorEventCard modal={modalActive} setModal={setModalActive} />
+            ) : (
+              <PublishedEventCard />
+            )}
           </Gapped>
         </PageLayout>
       </main>

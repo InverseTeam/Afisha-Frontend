@@ -4,9 +4,11 @@ import { TextareaInput } from '@/entities/inputs/textareaInput';
 import { SelectInput } from '@/entities/inputs/selectInput';
 import { SmartSelectInput } from '@/entities/inputs/smartSelectInput';
 import { TextInput } from '@/entities/inputs/textInput';
-import { EventData } from '@/shared/interfaces/event';
+import { EventData, Platform } from '@/shared/interfaces/event';
 import { useState, FC, FormEvent } from 'react';
 import { MainButton } from '@/entities/buttons/mainButton';
+import { AuthInput } from '@/entities/inputs/authInput';
+import { TagsInput } from '@/entities/inputs/tagsInput';
 
 export const EventForm: FC = () => {
   const [form, setForm] = useState<EventData>({
@@ -36,16 +38,13 @@ export const EventForm: FC = () => {
   const [name, setName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [pushCard, setPushCard] = useState<string>('');
+  const [platform, setPlatform] = useState<Platform>({});
 
-  console.log(pushCard);
-
-  const handleClick = () => {
-    
-  }
+  const handleClick = () => {};
 
   return (
-    <div className="flex w-full h-full">
-      <section className="w-1/2">
+    <div className="flex px-14">
+      <section className="w-33 flex flex-col gap-2 mr-16">
         <TextInput
           inputPlaceholder="Название"
           inputId="Название"
@@ -54,7 +53,7 @@ export const EventForm: FC = () => {
           setText={setName}
         />
         <TextareaInput
-          width="437px"
+          width="100%"
           height="183px"
           inputPlaceholder="Описание"
           inputId="Описание"
@@ -62,9 +61,37 @@ export const EventForm: FC = () => {
           inputValue={description}
           setText={setDescription}
         />
+        <TextInput
+          inputPlaceholder="Дата"
+          inputId="Дата"
+          inputName="date"
+          inputValue={name}
+          setText={setName}
+        />
+        <AuthInput
+          text={name}
+          setText={setName}
+          placeholder="Дата"
+          errorMessage="notError"
+          setErrorMessage={() => undefined}
+          inputName=""
+          password={false}
+          mail={false}
+          number={false}
+          passwordSignInMode={false}
+          date={true}
+        />
+        <TextInput
+          inputPlaceholder="Время"
+          inputId="Название"
+          inputName="name"
+          inputValue={name}
+          setText={setName}
+        />
+        
 
         <SelectInput
-          value={form.name}
+          item={form.name}
           placeholder="Оплата по “Пушкинской”"
           listVariant={['Есть', 'Нет']}
           setValue={() => setPushCard}
@@ -78,10 +105,51 @@ export const EventForm: FC = () => {
           onClick={handleClick}>
           Далее
         </MainButton>
-
-        {/* <SmartSelectInput value={text} placeholder="text" setValue={setText} /> */}
       </section>
-      <section></section>
+
+      <section className="w-33 flex flex-col gap-2">
+        <SmartSelectInput value={platform} placeholder="Площадка" setValue={setPlatform} />
+        <SelectInput
+          item={form.name}
+          placeholder="Оплата по “Пушкинской”"
+          listVariant={['Есть', 'Нет']}
+          setValue={() => setPushCard}
+        />
+        <SelectInput
+          item={form.name}
+          placeholder="Оплата по “Пушкинской”"
+          listVariant={['Есть', 'Нет']}
+          setValue={() => setPushCard}
+        />
+        <TagsInput
+          inputPlaceholder="Название"
+          inputId="Название"
+          inputName="name"
+          inputValue={name}
+          setText={setName}
+        />
+        <SelectInput
+          item={form.name}
+          placeholder="Оплата по “Пушкинской”"
+          listVariant={['Есть', 'Нет']}
+          setValue={() => setPushCard}
+        />
+
+        <TextInput
+          inputPlaceholder="Название"
+          inputId="Название"
+          inputName="name"
+          inputValue={name}
+          setText={setName}
+        />
+        <TextInput
+          inputPlaceholder="Название"
+          inputId="Название"
+          inputName="name"
+          inputValue={name}
+          setText={setName}
+        />
+      </section>
     </div>
   );
 };

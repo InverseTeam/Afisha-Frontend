@@ -6,7 +6,7 @@ export const getPlatforms = async () => {
         const getPlatform = await instanceLogged.get(`events/platforms/`);
         return getPlatform.data;
     } catch (e) {
-        alert('Ошибка при получении площадок')
+        // alert('Ошибка при получении площадок')
         return e;
     }
 };

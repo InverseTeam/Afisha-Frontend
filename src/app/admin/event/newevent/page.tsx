@@ -1,9 +1,9 @@
 'use client';
 
 import { NewEventForm } from '@/widgets/newEventForm';
-// import { NavBar } from '@/widgets/navBar/ui/ui';
+import { NavBar } from '@/widgets/navBar';
 import { useState, useRef, useEffect } from 'react';
-// import { Gapped } from '@/shared/gapped';
+import { Gapped } from '@/shared/gapped';
 
 export default function Home() {
   const [mobile, setMobile] = useState(false);
@@ -17,14 +17,9 @@ export default function Home() {
   }, []);
   return (
     <>
-      {/* <Gapped vertical gap="32px">
-        <header style={{ zIndex: '9999' }}>
-                    <NavBar mobile={mobile} active_event={true} />
-                </header>
-        <main>
-        </main>
-      </Gapped> */}
-      <NewEventForm />
+      <Gapped style={{ width: '100%', height: '100%', display: 'flex' }} vertical gap="32px">
+        <NewEventForm />
+      </Gapped>
     </>
   );
 }
