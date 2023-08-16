@@ -1,12 +1,9 @@
 'use client';
 
+import { Gapped } from '@/shared/gapped/ui/ui';
 import { NavBar } from '@/widgets/navBar';
 import { useRef, useState, useEffect } from 'react';
-export default function DashboardLayout({
-  children, // will be a page or nested layout
-}: {
-  children: React.ReactNode;
-}) {
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [mobile, setMobile] = useState(false);
   const width = useRef<number>(0);
 
@@ -17,11 +14,12 @@ export default function DashboardLayout({
     }
   }, []);
   return (
-    <section>
+    <Gapped vertical gap="32px">
       <nav>
         <NavBar mobile={mobile} />
       </nav>
+
       {children}
-    </section>
+    </Gapped>
   );
 }
