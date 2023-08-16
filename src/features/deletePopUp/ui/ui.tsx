@@ -8,6 +8,8 @@ interface DeletePopUpProps {
   description: string;
   btn_false_text: string;
   btn_true_text: string;
+  modal: boolean;
+  setModal: (arg: boolean) => void;
 }
 
 export const DeletePopUp: FC<DeletePopUpProps> = ({
@@ -15,11 +17,15 @@ export const DeletePopUp: FC<DeletePopUpProps> = ({
   description,
   btn_false_text,
   btn_true_text,
+  modal,
+  setModal,
 }) => {
+  const PopUpBtnStyles = `${modal ? 'screen active' : 'screen'}`;
+  console.assert(modal);
   return (
     <>
-      <div className={styles.screen}>
-        <div className={styles.card}>
+      <div className={PopUpBtnStyles} onClick={() => setModal(false)}>
+        <div className={styles.card} onClick={(e) => e.stopPropagation()}>
           <div className={styles.textBlock}>
             <h1 className={styles.title}>{title}</h1>
             <h3 className={styles.text}>{description}</h3>

@@ -1,9 +1,14 @@
 'use client';
-
 import styles from './ui.module.scss';
 import { useState } from 'react';
 import { LinkButton } from '@/entities/buttons/linkButton/ui/ui';
 import { useRouter } from 'next/navigation';
+
+const menuItems = [
+  { label: 'Мероприятия', path: '/admin/event' },
+  { label: 'Маршруты', path: '/admin/routes' },
+  { label: 'Аналитика', path: '/admin/analytics' },
+];
 
 export const NavBarElements = () => {
   const router = useRouter();
@@ -15,19 +20,19 @@ export const NavBarElements = () => {
     setEventItemState(true);
     setRoutesItemState(false);
     setAnalyticsItemState(false);
-    router.push('admin/event');
+    router.push('/admin/event');
   };
   const RoutesHandleClick = () => {
     setEventItemState(false);
     setRoutesItemState(true);
     setAnalyticsItemState(false);
-    router.push('admin/routes');
+    router.push('/admin/routes');
   };
   const AnalyticsHandleClick = () => {
     setEventItemState(false);
     setRoutesItemState(false);
     setAnalyticsItemState(true);
-    router.push('admin/analytics');
+    router.push('/admin/analytics');
   };
   return (
     <>

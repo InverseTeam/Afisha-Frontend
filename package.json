@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@2gis/mapgl": "^1.38.1",
     "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.18",
     "@radix-ui/colors": "^2.0.1",
@@ -24,10 +25,10 @@
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.13",
     "i": "^0.3.7",
-    "next": "13.4.13",
+    "next": "^13.4.13",
     "npm": "^9.8.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-input-mask": "^2.0.4",
     "sass": "^1.65.1",
     "styled-components": "^6.0.7",
