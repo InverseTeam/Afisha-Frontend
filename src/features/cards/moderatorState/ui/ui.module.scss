@@ -16,12 +16,14 @@ $platformColor: #7b7b7b;
     align-items: center;
     margin-bottom: 16px;
     min-width: 400px;
+    max-width: 400px;
     transition: all 0.2s;
     box-sizing: border-box;
     cursor: pointer;
 
     @media screen and (max-width: 1460px) {
       min-width: 380px;
+      max-width: 380px;
     }
     @media screen and (max-width: 1245px) {
       min-width: 480px;
@@ -109,6 +111,10 @@ $platformColor: #7b7b7b;
         font-size: 24px;
         font-weight: 800;
         color: #222;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 360px;
       }
       .platform {
         font-family: Mont;

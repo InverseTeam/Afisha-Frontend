@@ -23,6 +23,7 @@ export const publishHandleClick = async (eventDataID: string) => {
 
 export const rejectHandleClick = async (eventDataID: string) => {
   try {
+    prompt('Подтверждение', 'Вы точно хотите это сделать?');
     const reject = await instanceLogged.delete(`/events/${eventDataID}/`);
     if (typeof window !== undefined) {
       window.location.reload();
