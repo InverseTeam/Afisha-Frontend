@@ -15,7 +15,6 @@ export default function Test() {
   console.log('text', text);
   return (
     <>
-      
       <TextInput
         inputStyle={{ width: '100%' }}
         inputName="Ответ"
@@ -24,15 +23,18 @@ export default function Test() {
         inputTypes="text"
         inputValue={text}
         setText={setText}
-        handler={()=>{}}
       />
 
-      
       <div className="w-96 h-96 p-10 flex justify-center items-center">
         {/* <SmartSelectInput value={text} placeholder="text" setValue={setText} /> */}
         {/* <Example/> */}
 
-        <SelectInput value={text} placeholder="text" setValue={() => setText}/>
+        <SelectInput
+          value={text}
+          placeholder="text"
+          listVariant={['1', '2', '3', '4', '5']}
+          setValue={() => setText}
+        />
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './ui.module.scss';
-import { FC, useState, FormEvent } from 'react';
+import { FC, useState, ChangeEvent, FocusEvent } from 'react';
 
 interface DataInputProps {
   inputTypes?: string;
@@ -10,18 +10,20 @@ interface DataInputProps {
   inputName: string;
   setText: (inputText: string) => void;
   inputValue: string;
-  inputWidth?: 'large' | 'fit-content';
+  width: string;
+  height: string;
   inputStyle?: object;
   inputMaxLength?: number;
 }
 
-export const TextInput: FC<DataInputProps> = ({
+export const TextareaInput: FC<DataInputProps> = ({
   inputTypes = 'text',
   inputPlaceholder = '',
   inputId,
   inputName,
   inputValue,
-  inputWidth,
+  width,
+  height,
   inputStyle,
   inputMaxLength = 100,
   setText,
@@ -49,8 +51,8 @@ export const TextInput: FC<DataInputProps> = ({
       ...inputStyle,
     },
     wrap: {
-      width:
-        inputWidth === 'large' ? '438px' : inputWidth === 'fit-content' ? 'fit-content' : '100%',
+      width: width,
+      height: height,
     },
     iconWrap: {
       borderTop: inputFocus ? '1px solid #EBEBEB' : 'none',
@@ -66,16 +68,16 @@ export const TextInput: FC<DataInputProps> = ({
     setInputFocus(!inputFocus);
   };
 
-  const handleBlur = (event: FormEvent<HTMLInputElement>) => {
-    const input = event.target as HTMLInputElement;
+  const handleBlur = (event: FocusEvent<HTMLTextAreaElement>) => {
+    const input = event.target as HTMLTextAreaElement;
     const inputText = input.value;
 
     setInputFocus(false);
     setText(inputText);
   };
 
-  const handleInput = (event: FormEvent<HTMLInputElement>) => {
-    const input = event.target as HTMLInputElement;
+  const handleInput = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    const input = event.target as HTMLTextAreaElement;
     const inputText = input.value;
     const inputTextLength = inputText.length;
     if (
@@ -88,24 +90,22 @@ export const TextInput: FC<DataInputProps> = ({
     }
   };
 
-  
   return (
     <>
       <div style={{ width: '100%' }} className={styles.wrap}>
         <div style={style.wrap} className={styles.inputWrap}>
-          <input
+          <textarea
             name={inputName}
-            type={inputType}
             className={styles.input}
             placeholder={inputPlaceholder}
             id={inputId}
             value={inputValue}
             style={style.input}
-            onInput={(event: FormEvent<HTMLInputElement>) => {
+            onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
               handleInput(event);
             }}
             onFocus={() => handleFocus()}
-            onBlur={(event: FormEvent<HTMLInputElement>) => handleBlur(event)}
+            onBlur={(event: FocusEvent<HTMLTextAreaElement>) => handleBlur(event)}
             maxLength={inputMaxLength}
           />
         </div>
