@@ -7,7 +7,7 @@ import { AuthInput } from '@/entities/inputs/authInput';
 import { MainButton } from '@/entities/buttons/mainButton';
 import Link from 'next/link';
 import { TextInput } from '@/entities/inputs/textInput';
-import { Post } from '../module';
+import { Post } from '../model';
 import { useRouter } from 'next/navigation';
 
 export const LoginForm = () => {

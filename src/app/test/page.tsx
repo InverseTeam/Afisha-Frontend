@@ -1,6 +1,7 @@
 'use client';
 
 import { SmartSelectInput } from '@/entities/inputs/smartSelectInput';
+import { EventCard } from '@/features/cards/moderatorState/ui/ui';
 import { EventPageHeader } from '@/features/eventPageHeader';
 import { Gapped } from '@/shared/gapped/ui/ui';
 import { PageLayout } from '@/shared/layouts/pageLayout';
@@ -31,6 +32,7 @@ export default function Test() {
               rightBtnTitle="Опубликованные"
               setActive={setModeratorBtnActive}
             />
+            <EventCard/>
           </PageLayout>
         </main>
       </Gapped>
