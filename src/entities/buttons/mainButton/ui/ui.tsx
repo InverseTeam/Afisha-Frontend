@@ -69,3 +69,4 @@ export const MainButton: FC<MainButtonProps> = ({
 
   return <StyledButton onClick={onClick}>{children}</StyledButton>;
 };
+

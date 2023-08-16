@@ -1,5 +1,6 @@
 'use client';
 
+import { SmartSelectInput } from '@/entities/inputs/smartSelectInput';
 import { EventPageHeader } from '@/features/eventPageHeader';
 import { Gapped } from '@/shared/gapped/ui/ui';
 import { PageLayout } from '@/shared/layouts/pageLayout';
@@ -17,6 +18,7 @@ export default function Test() {
     }
   }, []);
   const [moderatorBtnActive, setModeratorBtnActive] = useState<boolean>(true);
+  const [text, setText] = useState<string>('');
   return (
     <>
       <Gapped vertical gap="32px">
