@@ -1,7 +1,5 @@
-'use client';
-
 import { FC } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 interface IconButtonProps {
   height: string;

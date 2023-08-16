@@ -1,22 +1,54 @@
 'use client';
 
 import { TextInput } from '@/entities/inputs/textInput';
-import { FC } from 'react';
+import { EventData } from '@/shared/interfaces/event';
+import { useState, FC, FormEvent } from 'react';
 
 export const EventForm: FC = () => {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<EventData> ({
+    id: '',
     name: '',
+    cover: '',
     description: '',
+    date: '',
+    total_tickets: '',
+    age_limit: '',
+    time: '',
+    price: 0,
+    artist: '',
+    pushkin_payment: false,
+    platform: [],
+    tags: [],
+    category: [],
+    images: []
   });
+
+  const changeHandler = (event: FormEvent<HTMLInputElement>) => {
+     const input = event.target as HTMLInputElement;
+
+    setForm({ ...form, [input.name]: input.value });
+  };
+
+  console.log(form)
+
   return (
     <div>
       <section>
         <TextInput
-          inputPlaceholder="Почта"
-          inputId="Почта"
-          inputName="Почта"
-          inputValue={}
-          setText={}
+          inputPlaceholder="Название"
+          inputId="Название"
+          inputName="name"
+          inputValue={form.name}
+          setText={() => {}}
+          handler={() => changeHandler}
+        />
+        <TextInput
+          inputPlaceholder="Название"
+          inputId="Название"
+          inputName="name"
+          inputValue={form.name}
+          setText={() => {}}
+          handler={() => changeHandler}
         />
       </section>
       <section></section>

@@ -14,25 +14,8 @@ export default function Test() {
   const [text, setText] = useState<string>('');
   console.log('text', text);
   return (
-    <div>
-      {/* <MainButton
-        width="large"
-        height="large"
-        color="#528D3D"
-        textColor="white"
-        isActive
-        onClick={() => {
-          console.log('ghghg');
-        }}>
-        Push
-      </MainButton> */}
-      {/* <IconButton
-        height="46px"
-        width="46px"
-        iconSrc={iconPlus.src}
-        color="#528D3D"
-        onClick={() => { console.log('icon')}}
-      />
+    <>
+      
       <TextInput
         inputStyle={{ width: '100%' }}
         inputName="Ответ"
@@ -43,20 +26,13 @@ export default function Test() {
         setText={setText}
       />
 
-      <AuthButton
-        onClick={()=>{}}
-        width="fit-content"
-        btnStyle={{ marginBottom: '8px' }}
-        use={'disabled'}
-        height="large">
-        Опубликовать
-      </AuthButton> */}
+      
       <div className="w-96 h-96 p-10 flex justify-center items-center">
         {/* <SmartSelectInput value={text} placeholder="text" setValue={setText} /> */}
         {/* <Example/> */}
 
         <SelectInput value={text} placeholder="text" setValue={setText}/>
       </div>
-    </div>
+    </>
   );
 }

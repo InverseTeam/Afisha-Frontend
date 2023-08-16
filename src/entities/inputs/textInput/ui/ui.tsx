@@ -13,6 +13,7 @@ interface DataInputProps {
   inputWidth?: 'large' | 'fit-content';
   inputStyle?: object;
   inputMaxLength?: number;
+  handler?: () => void;
 }
 
 export const TextInput: FC<DataInputProps> = ({
@@ -25,6 +26,7 @@ export const TextInput: FC<DataInputProps> = ({
   inputStyle,
   inputMaxLength = 100,
   setText,
+  handler,
 }) => {
   const [inputType, setInputType] = useState<'text' | 'tel' | 'number' | 'date' | 'time'>(
     inputTypes === 'text'
@@ -87,6 +89,8 @@ export const TextInput: FC<DataInputProps> = ({
       setText(inputText);
     }
   };
+
+  
   return (
     <>
       <div style={{ width: '100%' }} className={styles.wrap}>
@@ -99,7 +103,10 @@ export const TextInput: FC<DataInputProps> = ({
             id={inputId}
             value={inputValue}
             style={style.input}
-            onInput={(event: FormEvent<HTMLInputElement>) => handleInput(event)}
+            onInput={(event: FormEvent<HTMLInputElement>) => {
+              handleInput(event);
+              handler(event)
+            }}
             onFocus={() => handleFocus()}
             onBlur={(event: FormEvent<HTMLInputElement>) => handleBlur(event)}
             maxLength={inputMaxLength}

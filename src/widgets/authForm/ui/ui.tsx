@@ -7,7 +7,7 @@ import { AuthInput } from '@/entities/inputs/authInput';
 import { MainButton } from '@/entities/buttons/mainButton';
 import Link from 'next/link';
 import { TextInput } from '@/entities/inputs/textInput';
-import { Post, postLogin } from '../module';
+import { postLogin } from '../model';
 import { useRouter } from 'next/navigation';
 
 export const LoginForm = () => {
@@ -29,14 +29,11 @@ export const LoginForm = () => {
     }
   }, [inputMailValue.length, inputPasswordValue.length]);
 
-  const AuthHandleClick = async (event: MouseEvent<HTMLButtonElement>) => {
-
-    // event.preventDefault();
+  const AuthHandleClick = async () => {
     const userData: { email: string; password: string } = {
       email: inputMailValue,
       password: inputPasswordValue,
     };
-    console.log(userData)
     postLogin(userData);
   };
 
