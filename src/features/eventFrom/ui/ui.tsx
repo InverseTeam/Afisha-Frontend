@@ -9,6 +9,7 @@ import { useState, FC, FormEvent } from 'react';
 import { MainButton } from '@/entities/buttons/mainButton';
 import { AuthInput } from '@/entities/inputs/authInput';
 import { TagsInput } from '@/entities/inputs/tagsInput';
+import { DataInput } from '@/entities/inputs/dataInput';
 
 export const EventForm: FC = () => {
   const [form, setForm] = useState<EventData>({
@@ -37,10 +38,20 @@ export const EventForm: FC = () => {
 
   const [name, setName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
+  const [date, setDate] = useState<string>('');
+  const [time, setTime] = useState<string>('');
   const [pushCard, setPushCard] = useState<string>('');
   const [platform, setPlatform] = useState<Platform>({});
+  const [category, setCategory] = useState<string>('');
+  const [age, setAge] = useState<string>('');
+  const [condition, setCondition] = useState<string>('');
+  const [total, setTotal] = useState<string>('');
+  const [price, setPrice] = useState<string>('');
 
+  
   const handleClick = () => {};
+  console.log(time)
+  
 
   return (
     <div className="flex px-14">
@@ -61,33 +72,33 @@ export const EventForm: FC = () => {
           inputValue={description}
           setText={setDescription}
         />
-        <TextInput
+        
+
+        <DataInput
+          inputStyle={{ width: '100%' }}
+          inputDropDown={false}
+          inputName="Дата"
           inputPlaceholder="Дата"
-          inputId="Дата"
-          inputName="date"
-          inputValue={name}
-          setText={setName}
+          inputId={'Дата'}
+          fetchUrl="https://inverse-tracker.store/api/events/categories/"
+          inputTypes={'date'}
+          inputValue={date}
+          setText={(value) => setDate(value)}
+          inputMaxLength={20}
         />
-        <AuthInput
-          text={name}
-          setText={setName}
-          placeholder="Дата"
-          errorMessage="notError"
-          setErrorMessage={() => undefined}
-          inputName=""
-          password={false}
-          mail={false}
-          number={false}
-          passwordSignInMode={false}
-          date={true}
-        />
-        <TextInput
+        <DataInput
+          inputStyle={{ width: '100%' }}
+          inputDropDown={false}
+          inputName="Время"
           inputPlaceholder="Время"
-          inputId="Название"
-          inputName="name"
-          inputValue={name}
-          setText={setName}
+          inputId={'Время'}
+          fetchUrl="https://inverse-tracker.store/api/events/categories/"
+          inputTypes={'time'}
+          inputValue={time}
+          setText={(value) => setTime(value)}
+          inputMaxLength={20}
         />
+
         
 
         <SelectInput
@@ -111,13 +122,13 @@ export const EventForm: FC = () => {
         <SmartSelectInput value={platform} placeholder="Площадка" setValue={setPlatform} />
         <SelectInput
           item={form.name}
-          placeholder="Оплата по “Пушкинской”"
+          placeholder="Тип события"
           listVariant={['Есть', 'Нет']}
           setValue={() => setPushCard}
         />
         <SelectInput
           item={form.name}
-          placeholder="Оплата по “Пушкинской”"
+          placeholder="Возрастное ограничение”"
           listVariant={['Есть', 'Нет']}
           setValue={() => setPushCard}
         />
@@ -130,21 +141,21 @@ export const EventForm: FC = () => {
         />
         <SelectInput
           item={form.name}
-          placeholder="Оплата по “Пушкинской”"
+          placeholder="Условия входа"
           listVariant={['Есть', 'Нет']}
           setValue={() => setPushCard}
         />
 
         <TextInput
-          inputPlaceholder="Название"
-          inputId="Название"
+          inputPlaceholder="Количество билетов"
+          inputId="Количество билетов"
           inputName="name"
           inputValue={name}
           setText={setName}
         />
         <TextInput
-          inputPlaceholder="Название"
-          inputId="Название"
+          inputPlaceholder="Цена билета"
+          inputId="Цена билета"
           inputName="name"
           inputValue={name}
           setText={setName}
