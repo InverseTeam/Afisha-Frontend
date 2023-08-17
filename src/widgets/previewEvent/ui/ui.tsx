@@ -14,9 +14,10 @@ import PushkinBanner from '../../../../public/img/pushkinBanner.svg';
 
 export const PreviewEvent = () => {
   const [postData, setPostData] = useState<EventData | null>(null);
-  const url = window.location.href;
+
   useEffect(() => {
     const getEvent = async () => {
+      const url = window?.location.href;
       const fetchEvent: EventData = await Get(url.split('/')[5]);
       setPostData(fetchEvent);
     };
