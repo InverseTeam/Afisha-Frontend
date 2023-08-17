@@ -1,7 +1,11 @@
 'use client';
 
-import { DeletePopUp } from '@/features/deletePopUp/ui/ui';
+import { PreviewEvent } from '@/widgets/previewEvent';
 
 export default function Test() {
-  return <>1234</>;
+  return (
+    <>
+      <PreviewEvent />
+    </>
+  );
 }

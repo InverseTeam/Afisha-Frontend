@@ -1,0 +1,40 @@
+$navBarHeight: 60px;
+
+.elementTitle {
+  color: #0f0f0f;
+  font-family: Mont, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.centerElement {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.centerElement {
+  margin: auto;
+}
+
+.btnWrap {
+  clear: both;
+  float: left;
+}
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  height: auto;
+
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  user-select: none;
+
+  background: #fff;
+}

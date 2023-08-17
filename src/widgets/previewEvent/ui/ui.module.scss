@@ -1,0 +1,117 @@
+.platform {
+  color: #7b7b7b;
+  font-family: Mont;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.ticket {
+  color: #7aac5c;
+  font-family: Mont;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.description {
+  color: #7b7b7b;
+  font-family: Mont;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+}
+
+.btnFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: start;
+  gap: 8px;
+}
+
+.eventHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: start;
+  gap: 8px;
+}
+
+.eventMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: start;
+  gap: 24px;
+}
+
+.mainWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: start;
+  gap: 24px;
+}
+
+.cover {
+  width: 100%;
+  position: relative;
+}
+
+.bgImg {
+  width: 50%;
+  height: 320px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 16px;
+}
+
+.renderBtn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+}
+
+.pushkinBanner {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 24px;
+
+  align-items: center;
+  min-width: 360px;
+  border-radius: 18px;
+  background: #f8f8fa;
+}
+
+.pushkinActive {
+  color: #7aac5c;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: Mont;
+  font-size: 20px;
+  font-style: normal;
+  width: 150px;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.secondWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.imgPushkin {
+  position: relative;
+}
