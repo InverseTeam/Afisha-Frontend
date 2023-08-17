@@ -1,1 +1,1 @@
-export { RadioGroupRadix as RadioGroup } from './ui/ui';
+export { RadioGroup } from './ui/ui';
