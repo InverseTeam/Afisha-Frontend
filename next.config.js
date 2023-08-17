@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   compiler: {
-    output: {
-      export: true,
-    },
+    output: 'export',
     styledComponents: true,
   },
 };
