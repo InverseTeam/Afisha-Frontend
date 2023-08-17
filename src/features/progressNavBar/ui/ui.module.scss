@@ -1,0 +1,16 @@
+.icon {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 28px;
+  height: 28px;
+  transition: 0.2s;
+}
+
+.line {
+  width: 34px;
+  height: 2px;
+  transform: rotate(-90deg);
+  border-radius: 3px;
+  background: #f4f4f4;
+}

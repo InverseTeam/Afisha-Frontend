@@ -8,8 +8,6 @@ import { PublishedEventCard } from '@/features/cards/publishedState';
 
 export const EventForm = () => {
   const [moderatorBtnActive, setModeratorBtnActive] = useState<boolean>(true);
-  const [modalActive, setModalActive] = useState<boolean>(false);
-  
   return (
     <>
       <main>
@@ -21,11 +19,7 @@ export const EventForm = () => {
               rightBtnTitle="Опубликованные"
               setActive={setModeratorBtnActive}
             />
-            {moderatorBtnActive ? (
-              <ModeratorEventCard modal={modalActive} setModal={setModalActive} />
-            ) : (
-              <PublishedEventCard />
-            )}
+            {moderatorBtnActive ? <ModeratorEventCard /> : <PublishedEventCard />}
           </Gapped>
         </PageLayout>
       </main>

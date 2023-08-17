@@ -8,9 +8,17 @@ interface IconButtonProps {
   isActive?: boolean;
   onClick: () => void;
   iconSrc: string;
+  rounded?: boolean;
 }
-
-export const IconButton: FC<IconButtonProps> = ({ height, width, onClick, iconSrc, color,isActive = true }) => {
+export const IconButton: FC<IconButtonProps> = ({
+  height,
+  width,
+  onClick,
+  iconSrc,
+  color,
+  isActive = true,
+  rounded = false,
+}) => {
   const StyledIconButton = styled.button`
     display: flex;
     width: ${width};
@@ -20,11 +28,11 @@ export const IconButton: FC<IconButtonProps> = ({ height, width, onClick, iconSr
     align-items: center;
     flex-shrink: 0;
 
-    border-radius: 15px;
     background: ${color};
 
     cursor: ${isActive ? 'pointer' : 'not-allowed'};
-
+    border-radius: 15px;
+    border-radius: ${rounded ? '100px' : '15px'}
 
     &:hover {
       filter: ${isActive ? 'brightness(90%)' : 'brightness(100%)'};
@@ -47,7 +55,7 @@ export const IconButton: FC<IconButtonProps> = ({ height, width, onClick, iconSr
   `;
 
   return (
-    <StyledIconButton onClick={onClick} >
+    <StyledIconButton onClick={onClick}>
       <StyledIcon />
     </StyledIconButton>
   );

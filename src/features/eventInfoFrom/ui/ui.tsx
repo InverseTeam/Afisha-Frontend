@@ -11,7 +11,11 @@ import { AuthInput } from '@/entities/inputs/authInput';
 import { TagsInput } from '@/entities/inputs/tagsInput';
 import { DataInput } from '@/entities/inputs/dataInput';
 
-export const EventForm: FC = () => {
+interface EventInfoFormProps {
+  handlerSubmit: () => void
+}
+
+export const EventInfoForm: FC<EventInfoFormProps> = ({handlerSubmit}) => {
   const [form, setForm] = useState<EventData>({
     id: '',
     name: '',
@@ -49,9 +53,12 @@ export const EventForm: FC = () => {
   const [price, setPrice] = useState<string>('');
 
   
-  const handleClick = () => {};
-  console.log(time)
+  const handleClick = () => {
+    // const eventData: EventData = {name, description, date, time}
+    // handlerSubmit()
+  };
   
+  console.log(pushCard)
 
   return (
     <div className="flex px-14">
@@ -102,7 +109,7 @@ export const EventForm: FC = () => {
         
 
         <SelectInput
-          item={form.name}
+          value={form.name}
           placeholder="Оплата по “Пушкинской”"
           listVariant={['Есть', 'Нет']}
           setValue={() => setPushCard}

@@ -10,7 +10,7 @@ export interface EventData {
   price: number;
   artist: string;
   pushkin_payment: boolean;
-  platform: Platform[];
+  platform: Platform;
   tags: Tags[];
   category: Category[];
   images: Images[];

@@ -1,0 +1,1 @@
+import { UploadManyImages } from './ui/ui'

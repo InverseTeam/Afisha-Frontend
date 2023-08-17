@@ -1,44 +1,38 @@
-import { Fragment, useState, FC, FormEvent } from 'react';
+import { Fragment, useState, FC } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import './ui.scss';
 
 interface SmartSelectInputProps {
-  item: string;
-  setValue: () => {};
+  value: string;
+  setValue: () => void;
   placeholder: string;
-  listVariant: string[];
 }
 
+const people = [
+  'Wade Cooper',
+  'Arlene Mccoy',
+  'Devon Webb',
+  'Tom Cook',
+  'Tanya Fox',
+  'Hellen Schmidt',
+];
 
-export const SelectInput: FC<SmartSelectInputProps> = ({
-  placeholder,
-  item,
-  setValue,
-  listVariant,
-}) => {
-
-  console.log(item)
-  
+export const SelectInput: FC<SmartSelectInputProps> = ({ placeholder, value, setValue }) => {
   return (
-    <div className="w-full">
-      <Listbox value={item} onChange={setValue}>
-        <div className="relative h-14">
-          <Listbox.Button className="relative h-14 w-full cursor-default rounded-2xl bg-lightGray py-2 pl-3 pr-10 text-left  focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+    <div className="w-full h-full">
+      <Listbox value={value} onChange={setValue}>
+        <div className="relative mt-1 h-14">
+          <Listbox.Button className="relative h-14 w-full cursor-default rounded-2xl bg-lightGray py-2 pl-3 pr-10 text-left focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
             <span className="block truncate w-full">
-              {item.length === 0 ? placeholder : item}
+              {value.length === 0 ? placeholder : value}
             </span>
             {/* <div className="input-layout relative w-96 max-w-xl">
-              <input
-                placeholder=" "
-                className="input peer disabled transition-all outline-none select-all   "
-                value={value}
-                onChange={(event: FormEvent<HTMLInputElement>) => {
-                  setValue(event.target.value);
-                  handler(event);
-                }}
-              />
-              <label className="label text-lightGray text-xs peer-focus:text-xs peer-placeholder-shown:text-lg peer-focus:px-1 peer-placeholder-shown:px-0 bg-transparent peer-focus:bg-transparent peer-placeholder-shown:bg-transparent m-0 my-1 peer-focus:my-1 peer-placeholder-shown:m-auto -translate-y-1/5 peer-focus:-translate-y-1/5 peer-placeholder-shown:translate-y-0">
+              <label
+                className={({ value }) =>
+                  `label text-lightGray text-xs ${value ? }
+                  peer-focus:text-xs peer-placeholder-shown:text-lg peer-focus:px-1 peer-placeholder-shown:px-0 bg-transparent peer-focus:bg-transparent peer-placeholder-shown:bg-transparent m-0 my-1 peer-focus:my-1 peer-placeholder-shown:m-auto -translate-y-1/5 peer-focus:-translate-y-1/5 peer-placeholder-shown:translate-y-0`
+                }>
                 {placeholder}
               </label>
             </div> */}
@@ -52,11 +46,11 @@ export const SelectInput: FC<SmartSelectInputProps> = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0">
             <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-2xl p-2 bg-lightGray py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-              {listVariant.map((person, personIdx) => (
+              {people.map((person, personIdx) => (
                 <Listbox.Option
                   key={personIdx}
                   className={({ active }) =>
-                    `cursor-default select-none py-2 pl-10 pr-4 rounded-xl h-14 flex items-center ${
+                    `relative cursor-default select-none py-2 pl-10 pr-4 rounded-xl h-14 flex items-center ${
                       active ? 'bg-white' : 'text-gray-900'
                     }`
                   }

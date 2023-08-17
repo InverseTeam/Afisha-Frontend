@@ -1,0 +1,40 @@
+.imageBox {
+  position: relative;
+  display: inline-block;
+  margin: 1px;
+
+  .buttonDelete {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    // background-color: #f8f8fa;
+    border-radius: 100px;
+
+    .icon {
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 24px;
+      height: 24px;
+      transition: 0.2s;
+      // margin: 0 10px 4px 0;
+    }
+  }
+  .image {
+    color: transparent;
+    object-fit: cover;
+    background-size: cover;
+    border-radius: 15px;
+
+  }
+  .name {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    color: #fff;
+    font-family: Mont;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 800;
+  }
+}

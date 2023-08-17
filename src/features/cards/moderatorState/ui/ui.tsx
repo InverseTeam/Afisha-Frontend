@@ -10,13 +10,7 @@ import { parseISO } from 'date-fns';
 import { IconButton } from '@/entities/buttons/iconButton';
 import SettingIcon from '../../../../../public/icon/CardSettingsIcon.svg';
 
-export const ModeratorEventCard = ({
-  setModal,
-  modal,
-}: {
-  modal: boolean;
-  setModal: (arg: boolean) => void;
-}) => {
+export const ModeratorEventCard = () => {
   const [postData, setPostData] = useState<EventData[] | null>(null);
   useEffect(() => {
     const getEvent = async () => {
