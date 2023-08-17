@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@2gis/mapgl": "^1.38.1",
+    "@2gis/mapgl-directions": "^2.0.2",
     "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.18",
     "@radix-ui/colors": "^2.0.1",
