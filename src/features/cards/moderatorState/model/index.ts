@@ -2,7 +2,7 @@ import { instanceLogged } from '@/shared/api/axios';
 
 export const Get = async () => {
   try {
-    const getEvent: any = await instanceLogged.get('/events/');
+    const getEvent: any = await instanceLogged.get('events/not_published/');
     return getEvent.data;
   } catch (error) {
     return error;
@@ -11,7 +11,7 @@ export const Get = async () => {
 
 export const publishHandleClick = async (eventDataID: string) => {
   try {
-    const published = await instanceLogged.patch('/events/${eventDataID}/', { published: true });
+    const published = await instanceLogged.patch(`/events/${eventDataID}/`, { published: true });
     if (typeof window !== undefined) {
       window.location.reload();
     }
