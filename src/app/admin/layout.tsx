@@ -18,7 +18,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <nav>
         <NavBar mobile={mobile} />
       </nav>
-
       {children}
     </Gapped>
   );

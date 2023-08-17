@@ -35,6 +35,7 @@ export const LoginForm = () => {
       password: inputPasswordValue,
     };
     postLogin(userData);
+    router.push('/admin/event');
   };
 
   return (

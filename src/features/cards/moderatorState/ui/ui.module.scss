@@ -119,6 +119,10 @@ $platformColor: #7b7b7b;
       .platform {
         font-family: Mont;
         font-size: 16px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 360px;
+        white-space: nowrap;
         font-weight: 800;
         color: $platformColor;
       }
