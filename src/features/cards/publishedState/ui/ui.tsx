@@ -36,7 +36,6 @@ export const PublishedEventCard = () => {
       <div className={styles.cardRenderWrap}>
         {postData &&
           postData.map((event: EventData) => {
-            const renderUrl = 'https://inverse-tracker.store/';
             const eventDate = parseISO(event.date);
             const monthIndex = eventDate.getMonth();
             const formattedDate = `${eventDate.getDate()} ${months[monthIndex]}`;
@@ -45,7 +44,7 @@ export const PublishedEventCard = () => {
                 <div className={styles.cover}>
                   <div
                     style={{
-                      backgroundImage: `url(${renderUrl + event.cover})`,
+                      backgroundImage: `url(${event.cover})`,
                       display: 'block',
                     }}
                     className={styles.bg}>
