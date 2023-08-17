@@ -14,11 +14,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     }
   }, []);
   return (
-      <Gapped vertical gap="32px">
-        <nav>
-          <NavBar mobile={mobile} />
-        </nav>
-        {children}
-      </Gapped>
+    <Gapped vertical gap="32px">
+      <nav>
+        <NavBar mobile={mobile} />
+      </nav>
+      {children}
+    </Gapped>
   );
 }

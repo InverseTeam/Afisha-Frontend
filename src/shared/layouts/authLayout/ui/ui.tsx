@@ -21,7 +21,9 @@ export const AuthLayout: FC<AuthLayoutProps> = ({ children, isAuth, blockPageLin
       setPageRender(true);
       router.push(`${blockPageLink}`);
     } else {
-      router.push('/');
+      setTimeout(() => {
+        router.push('/');
+      }, 8000);
       setPageRender(true);
     }
   }, [blockPageLink, isAuth, router, setPageRender]);
