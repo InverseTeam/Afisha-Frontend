@@ -6,7 +6,7 @@ import '@radix-ui/themes/styles.css';
 const MontFont = Mont({ src: '../../public/fonts/Mont-SemiBold.woff' });
 
 export const metadata: Metadata = {
-  title: 'Sber Afisha',
+  title: 'I.Afisha',
   description: 'Расписания всех мероприятий Екатеринбурга на 2023 год и удобная покупка билетов',
 };
 
