@@ -16,7 +16,7 @@ export const AuthLayout: FC<AuthLayoutProps> = ({ children, isAuth, blockPageLin
   const [pageRender, setPageRender] = useState<boolean>(false);
 
   useEffect(() => {
-    const Token = getCookie('accentToken');
+    const Token = getCookie('accessToken');
     if (isAuth && Token) {
       setPageRender(true);
       router.push(`${blockPageLink}`);
