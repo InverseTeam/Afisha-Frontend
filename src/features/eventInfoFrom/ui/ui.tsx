@@ -28,14 +28,14 @@ export const EventInfoForm: FC<EventInfoFormProps> = ({ setIsActiveInfo }) => {
   const [date, setDate] = useState<string>('');
   const [time, setTime] = useState<string>('');
   const [pushCard, setPushCard] = useState<string>('Оплата по “Пушкинской”');
-  const [platform, setPlatform] = useState<Platform>({});
+  const [platform, setPlatform] = useState<Platform>();
   const [category, setCategory] = useState<string>('Тип события');
   const [age, setAge] = useState<string>('Возрастное ограничение');
   const [condition, setCondition] = useState<string>('Условия входа');
   const [total, setTotal] = useState<string>('');
   const [price, setPrice] = useState<string>('');
 
-  const [allCategoty, setAllCategoty] = useState<{ id: number; name: string; tags: Tags[] }>(null);
+  const [allCategoty, setAllCategoty] = useState<{ id: number; name: string; tags: Tags[] } | null>(null);
 
   const handleClick = () => {
     // const eventData: EventData = {name, description, date, time}
