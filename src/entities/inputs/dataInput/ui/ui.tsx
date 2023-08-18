@@ -58,16 +58,6 @@ export const DataInput: FC<DataInputProps> = ({
     const [isFetch, setIsFetch] = useState<boolean>(false);
 
     const style = {
-        icon: {
-            backgroundImage:
-                inputDropDown && dropDownIconsIsHover
-                    ? `url(${ArrowDownHover.src})`
-                    : inputDropDown && !isDropDownClick
-                    ? `url(${ArrowDown.src})`
-                    : inputDropDown && isDropDownClick
-                    ? `url(${ArrowDown.src})`
-                    : '',
-        },
         input: {
             width: '100%',
             backgroundColor: inputFocus ? '#F8F8FA' : '#F8F8FA',
