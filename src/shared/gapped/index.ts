@@ -1,1 +1,1 @@
-export {Gapped} from './ui/ui'
+export { Gapped } from './ui/ui';

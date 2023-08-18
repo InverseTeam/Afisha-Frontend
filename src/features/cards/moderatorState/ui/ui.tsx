@@ -9,7 +9,7 @@ import { MainButton } from '@/entities/buttons/mainButton';
 import { parseISO } from 'date-fns';
 import { IconButton } from '@/entities/buttons/iconButton';
 import SettingIcon from '../../../../../public/icon/CardSettingsIcon.svg';
-
+import Link from 'next/link';
 export const ModeratorEventCard = () => {
   const [postData, setPostData] = useState<EventData[] | null>(null);
   useEffect(() => {
@@ -41,68 +41,70 @@ export const ModeratorEventCard = () => {
       <div className={styles.cardRenderWrap}>
         {postData &&
           postData.map((event: EventData) => {
-            const renderUrl = 'https://inverse-tracker.store/';
             const eventDate = parseISO(event.date);
             const monthIndex = eventDate.getMonth();
             const formattedDate = `${eventDate.getDate()} ${months[monthIndex]}`;
+
             return (
-              <div key={event.id} className={styles.card}>
-                <div className={styles.cover}>
-                  <div
-                    style={{
-                      backgroundImage: `url(${renderUrl + event.cover})`,
-                      display: 'block',
-                    }}
-                    className={styles.bg}>
-                    <span className={styles.buttonDate}>
-                      {formattedDate ? formattedDate : '18.08.2023'}
-                    </span>
-                    <span className={styles.settingIcon}>
-                      <IconButton
-                        iconSrc={SettingIcon.src}
-                        onClick={handleClick}
-                        height="48px"
-                        width="48px"
-                        color="#F8F8FA"
-                      />
-                    </span>
-                  </div>
-                </div>
-                <main className={styles.info}>
-                  <Gapped vertical gap="4px">
-                    <h2 className={styles.cardTitle}>{event.name}</h2>
-                    <div className={styles.ticket}>
-                      <Image src={TicketIcon} width={18} height={18} alt="Иконка билета" />
-                      {(() => {
-                        if (event.total_tickets) {
-                          return `${event.total_tickets} билетов`;
-                        } else return `Билеты не поступили в продажу`;
-                      })()}
+              <Link key={event.id} href={`/admin/event/${event.id}`}>
+                <div className={styles.card}>
+                  <div className={styles.cover}>
+                    <div
+                      style={{
+                        backgroundImage: `url(${event.cover})`,
+                        display: 'block',
+                      }}
+                      className={styles.bg}>
+                      <span className={styles.buttonDate}>
+                        {formattedDate ? formattedDate : '18.08.2023'}
+                      </span>
+                      <span className={styles.settingIcon}>
+                        <IconButton
+                          iconSrc={SettingIcon.src}
+                          onClick={handleClick}
+                          height="48px"
+                          width="48px"
+                          color="#F8F8FA"
+                        />
+                      </span>
                     </div>
-                  </Gapped>
-                  <h3
-                    title={event.platform ? event.platform.name : 'Улица не найдена'}
-                    className={styles.platform}>
-                    {event.platform ? event.platform.name : 'Место не найдено'}
-                  </h3>
-                  <MainButton
-                    onClick={() => publishHandleClick(event.id)}
-                    height="large"
-                    width="fit-content"
-                    bgColor="#7AAC5C"
-                    textColor="white">
-                    Опубликовать
-                  </MainButton>
-                  <MainButton
-                    onClick={() => rejectHandleClick(event.id)}
-                    height="large"
-                    width="fit-content"
-                    bgColor="#fff"
-                    textColor="black">
-                    Отклонить
-                  </MainButton>
-                </main>
-              </div>
+                  </div>
+                  <main className={styles.info}>
+                    <Gapped vertical gap="4px">
+                      <h2 className={styles.cardTitle}>{event.name}</h2>
+                      <div className={styles.ticket}>
+                        <Image src={TicketIcon} width={18} height={18} alt="Иконка билета" />
+                        {(() => {
+                          if (event.total_tickets) {
+                            return `${event.total_tickets} билетов`;
+                          } else return `Билеты не поступили в продажу`;
+                        })()}
+                      </div>
+                    </Gapped>
+                    <h3
+                      title={event.platform ? event.platform.name : 'Улица не найдена'}
+                      className={styles.platform}>
+                      {event.platform ? event.platform.name : 'Место не найдено'}
+                    </h3>
+                    <MainButton
+                      onClick={() => publishHandleClick(event.id)}
+                      height="large"
+                      width="fit-content"
+                      bgColor="#7AAC5C"
+                      textColor="white">
+                      Опубликовать
+                    </MainButton>
+                    <MainButton
+                      onClick={() => rejectHandleClick(event.id)}
+                      height="large"
+                      width="fit-content"
+                      bgColor="#fff"
+                      textColor="black">
+                      Отклонить
+                    </MainButton>
+                  </main>
+                </div>
+              </Link>
             );
           })}
       </div>

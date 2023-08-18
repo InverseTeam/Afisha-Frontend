@@ -99,6 +99,10 @@ $platformColor: #7b7b7b;
         font-family: Mont;
         font-size: 24px;
         font-style: normal;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 360px;
         font-weight: 800;
         line-height: normal;
       }
@@ -109,6 +113,10 @@ $platformColor: #7b7b7b;
         font-style: normal;
         font-weight: 800;
         line-height: normal;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 360px;
+        white-space: nowrap;
       }
     }
   }

@@ -14,8 +14,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     }
   }, []);
   return (
-    //Нужно gap оставить 0, иначе будет смещение
-    <Gapped style={{height: '100vh'}} vertical gap="0px">
+    <Gapped vertical gap="32px">
       <nav>
         <NavBar mobile={mobile} />
       </nav>
