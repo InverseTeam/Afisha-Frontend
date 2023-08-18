@@ -13,7 +13,7 @@ import { DataInput } from '@/entities/inputs/dataInput';
 import { instanceLogged } from '@/shared/api/axios';
 
 interface EventInfoFormProps {
-  setIsActiveInfo: (state: boolean) => void;
+  setIsActiveInfo: any;
 }
 
 export const EventInfoForm: FC<EventInfoFormProps> = ({ setIsActiveInfo }) => {

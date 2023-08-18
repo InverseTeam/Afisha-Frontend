@@ -2,6 +2,7 @@ import { instanceLogged } from '@/shared/api/axios';
 
 export const Get = async () => {
   try {
+    console.log('ghghgh')
     const getEvent: any = await instanceLogged.get('events/not_published/');
     return getEvent.data;
   } catch (error) {

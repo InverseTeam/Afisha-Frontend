@@ -1,16 +1,65 @@
 'use client';
-import { Gapped } from '@/shared/gapped/ui/ui';
-import { AuthLayout } from '@/shared/layouts/authLayout';
-import { Map } from '@/widgets/routes/map';
 
-export default function Home() {
-  return (
-    <>
-      <AuthLayout isAuth blockPageLink="/admin/analytics">
-        <Gapped style={{ width: '100%', display: 'flex' }} vertical gap="0px">
-          <Map />
-        </Gapped>
-      </AuthLayout>
-    </>
-  );
+import { NavBar } from '@/widgets/navBar';
+import { useState, useRef, useEffect } from 'react';
+import { Gapped } from '@/shared/gapped';
+import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
+import { PieChart } from '@/widgets/analyticsData/pieChart';
+import { ListPaticipants } from '@/widgets/analyticsData/listParticipants';
+import { Title } from '@/shared/title';
+import { SecondTitle } from '@/shared/secondTitle';
+import { BarChart } from '@/widgets/analyticsData/barChart';
+import { Feedback } from '@/widgets/feedback/ui/ui';
+import { TargetAdd } from '@/widgets/targetAdd/ui/ui';
+
+
+
+export default function AnalyticsEvent() {
+    const [mobile, setMobile] = useState<boolean>(false);
+    const width = useRef<number>(0);
+
+    const metadata: Metadata = {
+        title: 'Мероприятие',
+        description:
+            'Расписания всех мероприятий Екатеринбурга на 2023 год и удобная покупка билетов',
+        icons: {
+            icon: ['./favicon.ico'],
+        },
+    };
+
+    useEffect(() => {
+        width.current = window && window.innerWidth;
+        if (width.current < 900) {
+            setMobile(true);
+        }
+    }, []);
+
+    // TODO: make new features
+    return (
+        <>
+            <Gapped vertical gap="32px">
+                <header style={{ zIndex: '9999' }}>
+                    <NavBar mobile={mobile} active_event={true} />
+                </header>
+                <main className="flex px-14 justify-between">
+                    <section className="w-1/2">
+                        <div className="flex flex-col mb-4">
+                            <Title>Концерт джаза</Title>
+                            <SecondTitle>МТС Live Холл</SecondTitle>
+                        </div>
+
+                        <PieChart />
+                        <BarChart />
+                        <Feedback />
+                    </section>
+
+                    <section className="w-1/2 flex flex-col items-center">
+                        <ListPaticipants />
+                        <TargetAdd />
+                    </section>
+                </main>
+            </Gapped>
+        </>
+    );
 }

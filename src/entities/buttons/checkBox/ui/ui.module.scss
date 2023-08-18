@@ -1,0 +1,28 @@
+.checkBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: no-repeat center;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.wrap {
+    display: flex;
+    gap: 8px;
+
+    align-items: center;
+    text-align: center;
+    justify-content: flex-start;
+
+    cursor: pointer;
+
+    transition: all 0.2s;
+}
+
+.checkBoxText {
+    font-family: 'Mont_SemiBold', sans-serif;
+    color: #222;
+}
