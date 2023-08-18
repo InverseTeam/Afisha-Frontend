@@ -46,7 +46,7 @@ export const EventPageHeader = ({
             {rightBtnTitle}
           </button>
           <IconButton
-            onClick={() => router.push('/admin/createnewevent')}
+            onClick={() => router.push('/admin/event/newevent')}
             width="48px"
             height="48px"
             color="#7AAC5C"

@@ -31,6 +31,7 @@ export interface Category {
   name: string;
   tags: Tags[];
 }
+
 export interface Images {
   id: number;
   image: string;

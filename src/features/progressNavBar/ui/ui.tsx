@@ -13,7 +13,7 @@ export const ProgressNavBar: FC<ProgressNavBar> = ({ title }) => {
   return (
     <div className="w-full flex h-16 mb-6">
       <ComeBack title={'Создание мероприятия'} />
-      <div className={styles.line} />
+      {/* <div className={styles.line} /> */}
       {/* <div>
         <div>
           <i

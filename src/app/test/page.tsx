@@ -33,7 +33,7 @@ export default function Test() {
           value={text}
           placeholder="text"
           listVariant={['1', '2', '3', '4', '5']}
-          setValue={() => setText}
+          setValue={setText}
         />
       </div>
     </>

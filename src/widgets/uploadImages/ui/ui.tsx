@@ -37,7 +37,7 @@ export const UploadImages = () => {
         />
       )}
 
-      <div className='flex flex-col gap-2 '>
+      <div className="flex flex-col gap-2 ">
         <TextInput
           inputPlaceholder="Ссылка на тизер"
           inputId="Ссылка на тизер"
@@ -45,14 +45,27 @@ export const UploadImages = () => {
           inputValue={link}
           setText={setLink}
         />
-        <MainButton
-          width="fit-content"
-          height="large"
-          bgColor="#7AAC5C"
-          textColor="white"
-          onClick={() => {}}>
-          Опубликовать
-        </MainButton>
+        {file !== null ? (
+          <MainButton
+            width="fit-content"
+            height="large"
+            bgColor="#7AAC5C"
+            textColor="white"
+            onClick={() => {}}>
+            Опубликовать
+          </MainButton>
+        ) : (
+          <MainButton
+            width="fit-content"
+            height="large"
+            bgColor="#7AAC5C"
+            textColor="white"
+            onClick={() => {}}
+            isActive={false}>
+            Опубликовать
+          </MainButton>
+        )}
+
         <MainButton
           width="fit-content"
           height="large"

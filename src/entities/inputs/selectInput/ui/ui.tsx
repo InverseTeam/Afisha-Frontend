@@ -2,30 +2,32 @@ import { Fragment, useState, FC } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import './ui.scss';
+import { Category, Tags } from '@/shared/interfaces/event';
 
 interface SmartSelectInputProps {
   value: string;
   setValue: () => void;
   placeholder: string;
+  listVariant: { id: number; name: string, tags?: Tags[] }[];
 }
 
-const people = [
-  'Wade Cooper',
-  'Arlene Mccoy',
-  'Devon Webb',
-  'Tom Cook',
-  'Tanya Fox',
-  'Hellen Schmidt',
-];
+export const SelectInput: FC<SmartSelectInputProps> = ({
+  placeholder,
+  value,
+  setValue,
+  listVariant,
+}) => {
+  // const [value, setValue] =useState<string> (listVariant[0])
 
-export const SelectInput: FC<SmartSelectInputProps> = ({ placeholder, value, setValue }) => {
   return (
     <div className="w-full h-full">
       <Listbox value={value} onChange={setValue}>
         <div className="relative mt-1 h-14">
           <Listbox.Button className="relative h-14 w-full cursor-default rounded-2xl bg-lightGray py-2 pl-3 pr-10 text-left focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
             <span className="block truncate w-full">
-              {value.length === 0 ? placeholder : value}
+              {/* {value.length === 0 ? placeholder : value} */}
+              {/* {value ? placeholder : value} */}
+              {value}
             </span>
             {/* <div className="input-layout relative w-96 max-w-xl">
               <label
@@ -45,23 +47,23 @@ export const SelectInput: FC<SmartSelectInputProps> = ({ placeholder, value, set
             leave="transition ease-in duration-100"
             leaveFrom="opacity-100"
             leaveTo="opacity-0">
-            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-2xl p-2 bg-lightGray py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-              {people.map((person, personIdx) => (
+            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-2xl p-2 bg-lightGray py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-10">
+              {listVariant.map((item) => (
                 <Listbox.Option
-                  key={personIdx}
+                  key={item.id}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 rounded-xl h-14 flex items-center ${
                       active ? 'bg-white' : 'text-gray-900'
                     }`
                   }
-                  value={person}>
+                  value={item.name}>
                   {({ selected }) => (
                     <>
                       <span
                         className={`block truncate  font-base ${
                           selected ? 'bold' : 'font-normal'
                         }`}>
-                        {person}
+                        {item.name}
                       </span>
                       {selected ? (
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">

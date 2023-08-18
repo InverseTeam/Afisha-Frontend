@@ -4,36 +4,19 @@ import { TextareaInput } from '@/entities/inputs/textareaInput';
 import { SelectInput } from '@/entities/inputs/selectInput';
 import { SmartSelectInput } from '@/entities/inputs/smartSelectInput';
 import { TextInput } from '@/entities/inputs/textInput';
-import { EventData, Platform } from '@/shared/interfaces/event';
-import { useState, FC, FormEvent } from 'react';
+import { EventData, Platform, Tags } from '@/shared/interfaces/event';
+import { useState, FC, FormEvent, useEffect } from 'react';
 import { MainButton } from '@/entities/buttons/mainButton';
 import { AuthInput } from '@/entities/inputs/authInput';
 import { TagsInput } from '@/entities/inputs/tagsInput';
 import { DataInput } from '@/entities/inputs/dataInput';
+import { instanceLogged } from '@/shared/api/axios';
 
 interface EventInfoFormProps {
-  handlerSubmit: () => void
+  setIsActiveInfo: () => void;
 }
 
-export const EventInfoForm: FC<EventInfoFormProps> = ({handlerSubmit}) => {
-  const [form, setForm] = useState<EventData>({
-    id: '',
-    name: '',
-    cover: '',
-    description: '',
-    date: '',
-    total_tickets: '',
-    age_limit: '',
-    time: '',
-    price: 0,
-    artist: '',
-    pushkin_payment: false,
-    platform: [],
-    tags: [],
-    category: [],
-    images: [],
-  });
-
+export const EventInfoForm: FC<EventInfoFormProps> = ({ setIsActiveInfo }) => {
   // const changeHandler = (event: FormEvent<HTMLInputElement>) => {
   //   const input = event!.target as HTMLInputElement;
 
@@ -44,25 +27,44 @@ export const EventInfoForm: FC<EventInfoFormProps> = ({handlerSubmit}) => {
   const [description, setDescription] = useState<string>('');
   const [date, setDate] = useState<string>('');
   const [time, setTime] = useState<string>('');
-  const [pushCard, setPushCard] = useState<string>('');
+  const [pushCard, setPushCard] = useState<string>('Оплата по “Пушкинской”');
   const [platform, setPlatform] = useState<Platform>({});
-  const [category, setCategory] = useState<string>('');
-  const [age, setAge] = useState<string>('');
-  const [condition, setCondition] = useState<string>('');
+  const [category, setCategory] = useState<string>('Тип события');
+  const [age, setAge] = useState<string>('Возрастное ограничение');
+  const [condition, setCondition] = useState<string>('Условия входа');
   const [total, setTotal] = useState<string>('');
   const [price, setPrice] = useState<string>('');
 
-  
+  const [allCategoty, setAllCategoty] = useState<{ id: number; name: string; tags: Tags[] }>(null);
+
   const handleClick = () => {
     // const eventData: EventData = {name, description, date, time}
     // handlerSubmit()
+    setIsActiveInfo(false)
+    
   };
-  
-  console.log(pushCard)
+
+  const getCategory = async () => {
+    try {
+      const getCategory = await instanceLogged.get(`events/categories/`);
+      console.log(getCategory.data);
+      setAllCategoty(getCategory.data);
+      return getCategory.data;
+    } catch (e) {
+      console.log(e);
+      return e;
+    }
+  };
+
+  useEffect(() => {
+    // getCategory();
+  }, []);
+
+  console.log(allCategoty);
 
   return (
     <div className="flex px-14">
-      <section className="w-33 flex flex-col gap-2 mr-16">
+      <section className="w-33 flex flex-col gap-2 mr-32">
         <TextInput
           inputPlaceholder="Название"
           inputId="Название"
@@ -79,7 +81,6 @@ export const EventInfoForm: FC<EventInfoFormProps> = ({handlerSubmit}) => {
           inputValue={description}
           setText={setDescription}
         />
-        
 
         <DataInput
           inputStyle={{ width: '100%' }}
@@ -106,39 +107,70 @@ export const EventInfoForm: FC<EventInfoFormProps> = ({handlerSubmit}) => {
           inputMaxLength={20}
         />
 
-        
-
         <SelectInput
-          value={form.name}
+          value={pushCard}
           placeholder="Оплата по “Пушкинской”"
-          listVariant={['Есть', 'Нет']}
-          setValue={() => setPushCard}
+          listVariant={[
+            { id: 1, name: 'Есть' },
+            { id: 2, name: 'Нет' },
+          ]}
+          setValue={setPushCard}
         />
 
-        <MainButton
-          width="large"
-          height="large"
-          bgColor="#7AAC5C"
-          textColor="white"
-          onClick={handleClick}>
-          Далее
-        </MainButton>
+        {price ? (
+          <MainButton
+            width="large"
+            height="large"
+            bgColor="#7AAC5C"
+            textColor="white"
+            onClick={handleClick}>
+            Далее
+          </MainButton>
+        ) : (
+          <MainButton
+            width="large"
+            height="large"
+            bgColor="#7AAC5C"
+            textColor="white"
+            onClick={handleClick}
+              isActive = {false}
+            >
+            Далее
+          </MainButton>
+        )}
       </section>
 
       <section className="w-33 flex flex-col gap-2">
         <SmartSelectInput value={platform} placeholder="Площадка" setValue={setPlatform} />
         <SelectInput
-          item={form.name}
+          value={category}
           placeholder="Тип события"
-          listVariant={['Есть', 'Нет']}
-          setValue={() => setPushCard}
+          listVariant={[
+            { id: 1, name: 'Кино' },
+            { id: 2, name: 'Литературный вечер' },
+            { id: 3, name: 'Иммерсивный театр' },
+            { id: 4, name: 'Шоу' },
+            { id: 5, name: 'Читка пьесы' },
+            { id: 6, name: 'Моноспектакль' },
+            { id: 7, name: 'Кукольный спектакль' },
+            { id: 8, name: 'Пластический спектакль' },
+          ]}
+          setValue={setCategory}
         />
         <SelectInput
-          item={form.name}
-          placeholder="Возрастное ограничение”"
-          listVariant={['Есть', 'Нет']}
-          setValue={() => setPushCard}
+          value={age}
+          placeholder="Возрастное ограничение"
+          listVariant={[
+            { id: 1, name: '21+' },
+            { id: 2, name: '18+' },
+            { id: 3, name: '16+' },
+            { id: 4, name: '12+' },
+            { id: 5, name: '6+' },
+            { id: 6, name: '0+' },
+          ]}
+          setValue={setAge}
         />
+
         <TagsInput
           inputPlaceholder="Название"
           inputId="Название"
@@ -147,10 +179,13 @@ export const EventInfoForm: FC<EventInfoFormProps> = ({handlerSubmit}) => {
           setText={setName}
         />
         <SelectInput
-          item={form.name}
+          value={condition}
           placeholder="Условия входа"
-          listVariant={['Есть', 'Нет']}
-          setValue={() => setPushCard}
+          listVariant={[
+            { id: 5, name: 'По билетам' },
+            { id: 6, name: 'Свободный' },
+          ]}
+          setValue={setCondition}
         />
 
         <TextInput
@@ -163,9 +198,9 @@ export const EventInfoForm: FC<EventInfoFormProps> = ({handlerSubmit}) => {
         <TextInput
           inputPlaceholder="Цена билета"
           inputId="Цена билета"
-          inputName="name"
-          inputValue={name}
-          setText={setName}
+          inputName="price"
+          inputValue={price}
+          setText={setPrice}
         />
       </section>
     </div>
