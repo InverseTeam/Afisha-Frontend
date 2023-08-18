@@ -1,1 +1,1 @@
-export {EventImgeForm} from './ui/ui'
+export {EventImageForm} from './ui/ui'
