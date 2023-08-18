@@ -184,7 +184,6 @@ export const DataInput: FC<DataInputProps> = ({
                             onMouseEnter={() => setDropDownIconsHover(!dropDownIconsIsHover)}
                             onClick={iconOnClick}
                             className={styles.icon}
-                            style={style.icon}
                             draggable="false"
                         />
                     </div>
