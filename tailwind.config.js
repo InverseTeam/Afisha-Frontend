@@ -18,6 +18,7 @@ module.exports = {
               lightGray: '#7B7B7B',
               gold: '#FFC55C',
               lightGray: '#F8F8FA',
+              gray: '#434343',
               borderColor: '#EBEBEB',
           },
           text: {
@@ -29,6 +30,8 @@ module.exports = {
           width: {
               150: '600',
               90: '450',
+              33: '433px',
+              77: '477px',
           },
           margin: {
               15: '60',
@@ -38,7 +41,11 @@ module.exports = {
           },
           border:{
             borderInput: '1px solid #EBEBEB',
+          },
+          gap:{
+            30: '120px',
           }
+          
       },
   },
   plugins: [],

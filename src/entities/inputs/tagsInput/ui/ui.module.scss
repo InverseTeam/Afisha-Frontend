@@ -3,8 +3,7 @@ $input-height: 58px;
 $placeholderColor: #7b7b7b;
 
 .input {
-    height: 150px;
-    resize: none;
+    height: $input-height;
     border: transparent;
     outline: none;
     border-radius: 15px;
@@ -16,8 +15,6 @@ $placeholderColor: #7b7b7b;
     font-family: 'Mont_SemiBold', sans-serif;
     color: #222;
 
-    white-space: pre-wrap;
-    overflow-wrap: break-word;
     background-color: $inputBgColor;
 
     cursor: pointer;
@@ -75,7 +72,7 @@ $placeholderColor: #7b7b7b;
     align-items: flex-start;
 
     width: 100%;
-    min-height: 173.1px;
+    max-height: 173.1px;
 
     border-radius: 15px;
     background: #f8f8fa;
@@ -120,4 +117,64 @@ $placeholderColor: #7b7b7b;
 
 .hideItemsUl {
     display: none !important;
+}
+
+.ul {
+    width: 100%;
+    height: $input-height;
+    background-color: $inputBgColor;
+    border: transparent;
+    outline: none;
+    border-radius: 15px 0 0 15px;
+    width: 100%;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+
+    .placeholder {
+        color: #7b7b7b;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        font-family: 'Mont_SemiBold', sans-serif;
+
+    }
+
+    // cursor: pointer;
+
+    .tag {
+        width: fit-content;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        padding: 0 8px;
+        font-size: 14px;
+        list-style: none;
+        border-radius: 6px;
+        margin-right: 8px;
+        background: #fff;
+
+        .tag_title {
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            font-family: 'Mont_SemiBold', sans-serif;
+            color: #0f0f0f;
+        }
+        .tag_close_icon {
+            // background-image: url('../../../../../public/dataInput/ic-cancel.svg');
+            display: block;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            text-align: center;
+            font-size: 14px;
+            margin-left: 8px;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+        }
+    }
 }

@@ -1,11 +1,13 @@
-import { Fragment, useState, FC } from 'react';
+import { Fragment, useState, FC, useEffect } from 'react';
 import { Combobox, Transition } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
+import { getPlatforms } from '../model/model';
+import { Platform } from '@/shared/interfaces/event';
+import './ui.scss';
 
 interface SmartSelectInputProps {
-  value: string;
+  value: Platform;
   setValue: () => void;
-  fetchUrl?: string;
   placeholder: string;
 }
 
@@ -20,13 +22,19 @@ const people = [
   { id: 6, name: 'Hellen Schmidt' },
 ];
 
-export const SmartSelectInput: FC<SmartSelectInputProps> = ({
-  placeholder,
-  value,
-  setValue,
-  fetchUrl,
-}) => {
+export const SmartSelectInput: FC<SmartSelectInputProps> = ({ placeholder, value, setValue }) => {
   const [query, setQuery] = useState('');
+  const [platforms, setPlatforms] = useState<Platform[]>([]);
+
+  const fetchPlatforms = async () => {
+    const fetchPlatformsData = await getPlatforms();
+
+    setPlatforms(fetchPlatformsData);
+  };
+
+  useEffect(() => {
+    fetchPlatforms();
+  }, []);
 
   const filteredPeople =
     query === ''
@@ -39,16 +47,24 @@ export const SmartSelectInput: FC<SmartSelectInputProps> = ({
         );
 
   return (
-    <div className="w-full h-14">
+    <div className="w-full">
       <Combobox value={value} onChange={setValue}>
-        <div className="relative mt-1 h-14 border-none">
-          <div className="relative w-full border-none cursor-default overflow-hidden rounded-lg bg-lightGray text-left  sm:text-sm">
+        <div className="relative h-14 border-none">
+          <div className=" input-layout relative w-full border-none cursor-default overflow-hidden text-left  sm:text-sm">
             <Combobox.Input
-              placeholder={placeholder}
-              className="w-full h-14 box-border px-4 pr-6 text-base font-bold leading-5 text-black2 focus:outline-none focus: border focus: border-solid focus: border-borderColor bg-lightGray text-gray-900 focus: border-button"
+              placeholder=" "
+              className="input peer w-33 transition-all outline-none select-all box-border px-4 pr-6 text-base bold leading-5 text-black2 focus:outline-none focus: border focus: border-solid focus: border-borderColor bg-lightGray text-gray-900 focus: border-button"
               displayValue={(person: any) => person.name}
               onChange={(event) => setQuery(event.target.value)}
             />
+            {/* <input
+                className="input peer transition-all outline-none select-all"
+                type="text"
+                placeholder=" "
+              /> */}
+            <label className="label text-lightGray text-xs peer-focus:text-xs peer-placeholder-shown:text-lg peer-focus:px-1 peer-placeholder-shown:px-0 bg-transparent peer-focus:bg-transparent peer-placeholder-shown:bg-transparent m-0 my-1 peer-focus:my-1 peer-placeholder-shown:m-auto -translate-y-1/5 peer-focus:-translate-y-1/5 peer-placeholder-shown:translate-y-0">
+              {placeholder}
+            </label>
             <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
               <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
               {/* <i
@@ -64,25 +80,27 @@ export const SmartSelectInput: FC<SmartSelectInputProps> = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
             afterLeave={() => setQuery('')}>
-            <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+            <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-2xl p-2 bg-lightGray py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
               {filteredPeople.length === 0 && query !== '' ? (
                 <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                   Nothing found.
                 </div>
               ) : (
-                filteredPeople.map((person) => (
+                platforms.map((person) => (
                   <Combobox.Option
                     key={person.id}
                     className={({ active }) =>
-                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                        active ? 'bg-lightGreen text-white' : 'text-gray-900'
+                      `relative cursor-default select-none py-2 pl-10 pr-4 rounded-xl h-14 flex items-center ${
+                        active ? 'bg-white' : 'text-gray-900'
                       }`
                     }
                     value={person}>
                     {({ selected, active }) => (
                       <>
                         <span
-                          className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
+                          className={`block truncate font-base ${
+                            selected ? 'bold' : 'font-normal'
+                          }`}>
                           {person.name}
                         </span>
                         {selected ? (

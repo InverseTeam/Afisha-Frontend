@@ -87,6 +87,8 @@ export const TextInput: FC<DataInputProps> = ({
       setText(inputText);
     }
   };
+
+  
   return (
     <>
       <div style={{ width: '100%' }} className={styles.wrap}>
@@ -99,7 +101,9 @@ export const TextInput: FC<DataInputProps> = ({
             id={inputId}
             value={inputValue}
             style={style.input}
-            onInput={(event: FormEvent<HTMLInputElement>) => handleInput(event)}
+            onInput={(event: FormEvent<HTMLInputElement>) => {
+              handleInput(event);
+            }}
             onFocus={() => handleFocus()}
             onBlur={(event: FormEvent<HTMLInputElement>) => handleBlur(event)}
             maxLength={inputMaxLength}

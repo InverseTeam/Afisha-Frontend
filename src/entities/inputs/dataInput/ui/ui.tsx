@@ -2,8 +2,6 @@
 
 import styles from './ui.module.scss';
 import { FC, useState, FormEvent, useEffect } from 'react';
-import ArrowDown from '../../../../../public/dataInput/ic_arrowdown.svg';
-import ArrowDownHover from '../../../../../public/dataInput/ic_arrowdownHover.svg';
 import axios from 'axios';
 import { parse } from 'cookie';
 

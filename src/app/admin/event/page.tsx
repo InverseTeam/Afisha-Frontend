@@ -11,6 +11,7 @@ export default function Home() {
       <AuthLayout isAuth blockPageLink="/admin/event">
         <Gapped style={{ width: '100%', display: 'flex' }} vertical gap="32px">
           <EventForm />
+          
         </Gapped>
       </AuthLayout>
     </>

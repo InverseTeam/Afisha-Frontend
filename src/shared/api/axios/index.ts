@@ -15,7 +15,7 @@ const BASE_URL = 'https://inverse-tracker.store/api';
 
 export const instanceLogged: AxiosInstance = axios.create({
     baseURL: BASE_URL,
-    timeout: 5000,
+    timeout: 10000,
     headers: { Authorization: `Token ${Token}` },
 });
 
