@@ -6,7 +6,7 @@ import { Category, Tags } from '@/shared/interfaces/event';
 
 interface SmartSelectInputProps {
   value: string;
-  setValue: () => void;
+  setValue: any;
   placeholder: string;
   listVariant: { id: number; name: string, tags?: Tags[] }[];
 }

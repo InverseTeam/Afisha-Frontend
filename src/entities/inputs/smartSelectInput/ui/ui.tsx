@@ -7,7 +7,7 @@ import './ui.scss';
 
 interface SmartSelectInputProps {
   value: Platform;
-  setValue: () => void;
+  setValue: any;
   placeholder: string;
 }
 

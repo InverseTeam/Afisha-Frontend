@@ -13,7 +13,7 @@ import { DataInput } from '@/entities/inputs/dataInput';
 import { instanceLogged } from '@/shared/api/axios';
 
 interface EventInfoFormProps {
-  setIsActiveInfo: () => void;
+  setIsActiveInfo: (state: boolean) => void;
 }
 
 export const EventInfoForm: FC<EventInfoFormProps> = ({ setIsActiveInfo }) => {
@@ -28,7 +28,7 @@ export const EventInfoForm: FC<EventInfoFormProps> = ({ setIsActiveInfo }) => {
   const [date, setDate] = useState<string>('');
   const [time, setTime] = useState<string>('');
   const [pushCard, setPushCard] = useState<string>('Оплата по “Пушкинской”');
-  const [platform, setPlatform] = useState<Platform>();
+  const [platform, setPlatform] = useState<any>();
   const [category, setCategory] = useState<string>('Тип события');
   const [age, setAge] = useState<string>('Возрастное ограничение');
   const [condition, setCondition] = useState<string>('Условия входа');
