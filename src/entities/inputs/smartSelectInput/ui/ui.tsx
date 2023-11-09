@@ -13,23 +13,24 @@ interface SmartSelectInputProps {
 
 //TODO: add get request for places
 
-const people = [
-  { id: 1, name: 'Wade Cooper' },
-  { id: 2, name: 'Arlene Mccoy' },
-  { id: 3, name: 'Devon Webb' },
-  { id: 4, name: 'Tom Cook' },
-  { id: 5, name: 'Tanya Fox' },
-  { id: 6, name: 'Hellen Schmidt' },
-];
+
 
 export const SmartSelectInput: FC<SmartSelectInputProps> = ({ placeholder, value, setValue }) => {
   const [query, setQuery] = useState('');
-  const [platforms, setPlatforms] = useState<Platform[]>([]);
-
+  // const [platforms, setPlatforms] = useState();
+  const people = [
+    { id: 1, name: 'Wade Cooper' },
+    { id: 2, name: 'Arlene Mccoy' },
+    { id: 3, name: 'Devon Webb' },
+    { id: 4, name: 'Tom Cook' },
+    { id: 5, name: 'Tanya Fox' },
+    { id: 6, name: 'Hellen Schmidt' },
+  ];
+  // setPlatforms(people);
   const fetchPlatforms = async () => {
-    const fetchPlatformsData = await getPlatforms();
+    // const fetchPlatformsData = await getPlatforms();
 
-    setPlatforms(fetchPlatformsData);
+    // setPlatforms(people);
   };
 
   useEffect(() => {
@@ -86,7 +87,7 @@ export const SmartSelectInput: FC<SmartSelectInputProps> = ({ placeholder, value
                   Nothing found.
                 </div>
               ) : (
-                platforms.map((person) => (
+                people.map((person) => (
                   <Combobox.Option
                     key={person.id}
                     className={({ active }) =>

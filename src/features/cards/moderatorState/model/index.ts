@@ -5,7 +5,7 @@ export const Get = async () => {
     const getEvent: any = await instanceLogged.get('events/not_published/');
     return getEvent.data;
   } catch (error) {
-    return error;
+    return [];
   }
 };
 

@@ -19,6 +19,7 @@ export const PreviewEvent = () => {
     const getEvent = async () => {
       const url = window?.location.href;
       const fetchEvent: EventData = await Get(url.split('/')[5]);
+      console.log(url.split('/')[5])
       setPostData(fetchEvent);
     };
     getEvent();
