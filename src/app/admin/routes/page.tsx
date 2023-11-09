@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <AuthLayout isAuth blockPageLink="/admin/routes">
         <Gapped style={{ width: '100%', display: 'flex' }} vertical gap="0px">
-          <Map />
+          {/* <Map /> */}
         </Gapped>
       </AuthLayout>
     </>

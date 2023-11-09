@@ -1,13 +1,13 @@
 'use client';
 
-import { ToPublishButton } from '@/entities/buttons/toPublishButton';
+// import { ToPublishButton } from '@/entities/buttons/toPublishButton';
 import { LineParticipans } from '@/entities/lineParticipans';
 import { Gapped } from '@/shared/gapped';
-import { UserData } from '@/shared/interfaces/interfaces';
+import { IUserData } from '@/shared/interfaces/user';
 import { useEffect } from 'react';
 
 export const ListPaticipants = () => {
-    const MOCKDATA: UserData = {
+    const MOCKDATA: IUserData = {
         id: 12,
         name: 'Иван',
         lastname: 'Иванов',
@@ -16,7 +16,7 @@ export const ListPaticipants = () => {
         mail: 'ivan_ivanov@mail.ru',
     };
 
-    const listUser: UserData[] = [MOCKDATA, MOCKDATA, MOCKDATA];
+    const listUser: IUserData[] = [MOCKDATA, MOCKDATA, MOCKDATA];
 
     const fetchData = async () => {
         if (typeof window !== 'undefined') {
@@ -34,7 +34,7 @@ export const ListPaticipants = () => {
     return (
         <div className="w-96 mb-28">
             <div className="flex flex-col mb-4">
-                <span class="text-xl text-black leading-5 mt-5 font-extrabold mb-5">Участники</span>
+                <span className="text-xl text-black leading-5 mt-5 font-extrabold mb-5">Участники</span>
                 <span className="text-base text-lightGray">1000 человек</span>
             </div>
             {listUser.map((user, index) => (

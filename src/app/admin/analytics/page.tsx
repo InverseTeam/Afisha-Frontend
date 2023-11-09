@@ -38,12 +38,11 @@ export default function AnalyticsEvent() {
     // TODO: make new features
     return (
         <>
+        analytics
             <Gapped vertical gap="32px">
-                <header style={{ zIndex: '9999' }}>
-                    <NavBar mobile={mobile} active_event={true} />
-                </header>
-                <main className="flex px-14 justify-between">
-                    <section className="w-1/2">
+                {/* <NavBar mobile={mobile} /> */}
+               
+                    {/* <section className="w-1/2">
                         <div className="flex flex-col mb-4">
                             <Title>Концерт джаза</Title>
                             <SecondTitle>МТС Live Холл</SecondTitle>
@@ -57,8 +56,8 @@ export default function AnalyticsEvent() {
                     <section className="w-1/2 flex flex-col items-center">
                         <ListPaticipants />
                         <TargetAdd />
-                    </section>
-                </main>
+                    </section> */}
+                
             </Gapped>
         </>
     );

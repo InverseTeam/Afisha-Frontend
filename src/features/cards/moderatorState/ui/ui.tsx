@@ -10,11 +10,15 @@ import { parseISO } from 'date-fns';
 import { IconButton } from '@/entities/buttons/iconButton';
 import SettingIcon from '../../../../../public/icon/CardSettingsIcon.svg';
 import Link from 'next/link';
+
+
 export const ModeratorEventCard = () => {
   const [postData, setPostData] = useState<EventData[] | null>(null);
+
   useEffect(() => {
     const getEvent = async () => {
       const fetchEvent: EventData[] = await Get();
+      
       setPostData(fetchEvent);
     };
     getEvent();
@@ -36,6 +40,8 @@ export const ModeratorEventCard = () => {
   const handleClick = () => {
     return;
   };
+
+  console.log("post data", postData);
   return (
     <>
       <div className={styles.cardRenderWrap}>

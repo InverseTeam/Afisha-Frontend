@@ -1,9 +1,9 @@
 'use client';
-import { UserData } from '@/shared/interfaces/interfaces';
+import { IUserData } from '@/shared/interfaces/user';
 import styles from './ui.module.scss';
 
 //TODO: change style for text 
-export const LineParticipans = (userData: UserData) => {
+export const LineParticipans = (userData: IUserData) => {
     return (
         <div className="flex align-middle my-4">
             <div className="flex flex-col">

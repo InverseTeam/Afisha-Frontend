@@ -5,8 +5,8 @@ import { CheckBoxLabel } from '@/features/checkBoxLabel';
 import { useState } from 'react';
 import image from '../../../../public/images/image.png';
 import Image from 'next/image';
-import { DeleteEventButton } from '@/entities/buttons/deleteEventButton/ui/ui';
-import { AuthButton } from '@/entities/buttons/authButton/ui/ui';
+// import { DeleteEventButton } from '@/entities/buttons/deleteEventButton/ui/ui';
+// import { AuthButton } from '@/entities/buttons/authButton/ui/ui';
 import { MainButton } from '@/entities/buttons/mainButton';
 
 //TODO: change architecture
@@ -20,12 +20,12 @@ export const TargetAdd = () => {
     <div>
       <span className="text-xl text-black leading-5 font-extrabold ">Тартегированая реклама</span>
       <div className="w-96 mb-10">
-        <AddFileButton
+        {/* <AddFileButton
           setFile={setSelectedFile}
           title="Банер "
           text="Прикрепите файл формата jpg,
                     минимальный размер 375*812"
-        />
+        /> */}
       </div>
       <Image className="mb-10" src={image} width={235} height={190} alt="Ticket" />
 
