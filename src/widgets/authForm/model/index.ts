@@ -12,7 +12,6 @@ export const postLogin = async (userData: { email: string; password: string }) =
       localStorage.setItem('token', loginUser.data.auth_token);
     }
   } catch (e) {
-    alert('Введены неверные данные');
     return e;
   }
 };

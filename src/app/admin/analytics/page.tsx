@@ -1,5 +1,6 @@
 'use client';
 
+
 import { NavBar } from '@/widgets/navBar';
 import { useState, useRef, useEffect } from 'react';
 import { Gapped } from '@/shared/gapped';
@@ -61,4 +62,5 @@ export default function AnalyticsEvent() {
             </Gapped>
         </>
     );
+
 }

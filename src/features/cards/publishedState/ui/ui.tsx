@@ -6,7 +6,7 @@ import TicketIcon from '../../../../../public/icon/ModeratorCardTicketIcon.svg';
 import Image from 'next/image';
 import { Gapped } from '@/shared/gapped/ui/ui';
 import { parseISO } from 'date-fns';
-
+import Link from 'next/link';
 export const PublishedEventCard = () => {
   const [postData, setPostData] = useState<EventData[] | null>(null);
   useEffect(() => {
@@ -40,36 +40,38 @@ export const PublishedEventCard = () => {
             const monthIndex = eventDate.getMonth();
             const formattedDate = `${eventDate.getDate()} ${months[monthIndex]}`;
             return (
-              <div key={event.id} className={styles.card}>
-                <div className={styles.cover}>
-                  <div
-                    style={{
-                      backgroundImage: `url(${event.cover})`,
-                      display: 'block',
-                    }}
-                    className={styles.bg}>
-                    <span className={styles.buttonDate}>{formattedDate}</span>
-                  </div>
-                </div>
-                <main className={styles.info}>
-                  <Gapped vertical gap="4px">
-                    <h2 className={styles.cardTitle}>{event.name}</h2>
-                    <div className={styles.ticket}>
-                      <Image src={TicketIcon} width={18} height={18} alt="Иконка билета" />
-                      {(() => {
-                        if (event.total_tickets) {
-                          return `${event.total_tickets} билетов`;
-                        } else return `Билеты не поступили в продажу`;
-                      })()}
+              <Link key={event.id} href={`/admin/event/${event.id}`}>
+                <div className={styles.card}>
+                  <div className={styles.cover}>
+                    <div
+                      style={{
+                        backgroundImage: `url(${event.cover})`,
+                        display: 'block',
+                      }}
+                      className={styles.bg}>
+                      <span className={styles.buttonDate}>{formattedDate}</span>
                     </div>
-                  </Gapped>
-                  <h3
-                    title={event.platform ? event.platform.name : 'Улица не найдена'}
-                    className={styles.platform}>
-                    {event.platform ? event.platform.name : 'Место не найдено'}
-                  </h3>
-                </main>
-              </div>
+                  </div>
+                  <main className={styles.info}>
+                    <Gapped vertical gap="4px">
+                      <h2 className={styles.cardTitle}>{event.name}</h2>
+                      <div className={styles.ticket}>
+                        <Image src={TicketIcon} width={18} height={18} alt="Иконка билета" />
+                        {(() => {
+                          if (event.total_tickets) {
+                            return `${event.total_tickets} билетов`;
+                          } else return `Билеты не поступили в продажу`;
+                        })()}
+                      </div>
+                    </Gapped>
+                    <h3
+                      title={event.platform ? event.platform.name : 'Улица не найдена'}
+                      className={styles.platform}>
+                      {event.platform ? event.platform.name : 'Место не найдено'}
+                    </h3>
+                  </main>
+                </div>
+              </Link>
             );
           })}
       </div>
